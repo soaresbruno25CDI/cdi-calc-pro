@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>CDI Calc Pro | Centralizado</title>
+    <title>CDI Calc Pro | Orçamento de Exames (TC/RM + EDA/Colono)</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
-        /* ===== ESTILOS COMPLETOS (compactos, responsivos, dark mode) ===== */
         :root {
             --primary: #0066CC;
             --primary-dark: #0052a3;
@@ -30,6 +29,7 @@
             --warning: #f59e0b;
             --error: #ef4444;
         }
+
         [data-theme="dark"] {
             --bg-primary: #0f172a;
             --bg-secondary: #1e293b;
@@ -38,10 +38,14 @@
             --text-secondary: #cbd5e1;
             --border: #334155;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 14px; }
         body { font-family: var(--font-sans); background: var(--bg-secondary); color: var(--text-primary); line-height: 1.4; }
+
         .container { max-width: 1200px; margin: 0 auto; padding: 1rem; }
+
+        /* Header Compacto */
         .header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             border-radius: var(--radius-lg);
@@ -52,8 +56,22 @@
             align-items: center;
             box-shadow: var(--shadow-md);
         }
-        .header-title h1 { font-size: 1.25rem; color: white; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
-        .header-title p { color: rgba(255,255,255,0.9); font-size: 0.75rem; margin-top: 0.25rem; }
+
+        .header-title h1 {
+            font-size: 1.25rem;
+            color: white;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .header-title p {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+        }
+
         .theme-toggle, .admin-btn {
             background: rgba(255,255,255,0.2);
             border: 1px solid rgba(255,255,255,0.3);
@@ -67,10 +85,24 @@
             align-items: center;
             justify-content: center;
         }
-        .admin-btn { width: auto; padding: 0 0.75rem; font-size: 0.75rem; margin-right: 0.5rem; opacity: 0.8; }
+        .admin-btn {
+            width: auto;
+            padding: 0 0.75rem;
+            font-size: 0.75rem;
+            margin-right: 0.5rem;
+            opacity: 0.8;
+        }
         .admin-btn:hover { opacity: 1; background: rgba(255,255,255,0.3); }
-        .main-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+        /* Grid Principal */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
         @media (max-width: 900px) { .main-grid { grid-template-columns: 1fr; } }
+
+        /* Cards */
         .card {
             background: var(--bg-primary);
             border-radius: var(--radius-lg);
@@ -79,30 +111,98 @@
             border: 1px solid var(--border);
             margin-bottom: 0.75rem;
         }
-        .card-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--bg-tertiary); }
-        .card-icon { width: 28px; height: 28px; background: var(--primary-light); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 0.875rem; }
-        .card-title { font-size: 0.875rem; font-weight: 700; }
-        .category-filters { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; }
-        .filter-btn {
-            flex: 1; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius);
-            padding: 0.4rem 0.5rem; font-size: 0.75rem; font-weight: 600; cursor: pointer; text-align: center;
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--bg-tertiary);
         }
-        .filter-btn.active { background: var(--primary); border-color: var(--primary); color: white; }
+        .card-icon {
+            width: 28px;
+            height: 28px;
+            background: var(--primary-light);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+        }
+        .card-title { font-size: 0.875rem; font-weight: 700; }
+
+        /* Filtros de categoria (botões) */
+        .category-filters {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .filter-btn {
+            flex: 1;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0.4rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+        .filter-btn:hover:not(.active) {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        /* Radio Group */
         .radio-group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
         .radio-card { flex: 1; min-width: 100px; position: relative; }
         .radio-card input { position: absolute; opacity: 0; }
         .radio-content {
-            display: flex; align-items: center; justify-content: center; gap: 0.25rem; padding: 0.5rem 0.75rem;
-            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius);
-            cursor: pointer; font-size: 0.8rem; font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.25rem;
+            padding: 0.5rem 0.75rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.8rem;
+            font-weight: 600;
         }
         .radio-card input:checked + .radio-content { border-color: var(--primary); background: var(--primary-light); color: var(--primary); }
         .radio-card.disabled { opacity: 0.5; pointer-events: none; }
+
+        /* Search */
         .search-box { position: relative; margin-bottom: 0.5rem; }
-        .search-input { width: 100%; padding: 0.5rem 0.75rem 0.5rem 2rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.875rem; }
+        .search-input {
+            width: 100%;
+            padding: 0.5rem 0.75rem 0.5rem 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+        }
         .search-icon { position: absolute; left: 0.5rem; top: 50%; transform: translateY(-50%); font-size: 0.875rem; }
+
+        /* Exam List */
         .exam-list { display: flex; flex-direction: column; gap: 0.5rem; max-height: 500px; overflow-y: auto; }
-        .exam-item { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.5rem 0.75rem; display: flex; justify-content: space-between; align-items: center; }
+        .exam-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0.5rem 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
         .exam-item.disabled { opacity: 0.5; background: var(--bg-tertiary); }
         .exam-item.hidden { display: none; }
         .exam-code { font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-tertiary); }
@@ -110,68 +210,170 @@
         .exam-values { font-family: var(--font-mono); font-size: 0.75rem; color: var(--primary); font-weight: 600; }
         .exam-tag { font-size: 0.6rem; padding: 1px 4px; border-radius: 9999px; background: var(--secondary); color: white; font-weight: 700; text-transform: uppercase; }
         .exam-controls { display: flex; align-items: center; gap: 0.5rem; }
-        .qty-btn { width: 24px; height: 24px; border: none; background: var(--primary); color: white; border-radius: var(--radius); cursor: pointer; font-size: 0.875rem; font-weight: 600; }
+        .qty-btn {
+            width: 24px; height: 24px; border: none; background: var(--primary); color: white;
+            border-radius: var(--radius); cursor: pointer; font-size: 0.875rem; font-weight: 600;
+        }
         .qty-btn:disabled { background: var(--text-tertiary); cursor: not-allowed; }
         .qty-display { min-width: 20px; text-align: center; font-family: var(--font-mono); font-weight: 700; }
+
+        /* Extras */
         .extras-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-        .extra-card { position: relative; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.5rem; cursor: pointer; }
+        .extra-card {
+            position: relative;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0.5rem;
+            cursor: pointer;
+        }
         .extra-card.selected { border-color: var(--secondary); background: var(--primary-light); }
         .extra-card.disabled { opacity: 0.5; pointer-events: none; }
         .extra-card input { position: absolute; opacity: 0; }
         .extra-title { font-weight: 600; font-size: 0.8rem; }
         .extra-value { font-family: var(--font-mono); font-size: 1rem; font-weight: 700; color: var(--secondary); }
+
+        /* Result Card */
         .result-card {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            border-radius: var(--radius-lg); padding: 1rem; color: white; box-shadow: var(--shadow-md); position: sticky; top: 1rem;
+            border-radius: var(--radius-lg);
+            padding: 1rem;
+            color: white;
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 1rem;
         }
         .result-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
         .result-label { font-size: 0.75rem; opacity: 0.9; text-transform: uppercase; }
         .result-value { font-family: var(--font-mono); font-size: 2rem; font-weight: 700; }
         .result-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-        .btn { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.4rem 0.75rem; border-radius: var(--radius); font-weight: 600; font-size: 0.75rem; cursor: pointer; border: none; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.4rem 0.75rem;
+            border-radius: var(--radius); font-weight: 600; font-size: 0.75rem; cursor: pointer;
+            border: none; transition: 0.2s;
+        }
         .btn-white { background: white; color: var(--primary); }
+        .btn-white:hover { transform: translateY(-1px); }
         .btn-outline { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.3); }
-        .detail-box { background: rgba(0,0,0,0.2); border-radius: var(--radius); padding: 0.75rem; font-family: var(--font-mono); font-size: 0.75rem; line-height: 1.5; white-space: pre-wrap; max-height: 250px; overflow-y: auto; margin-bottom: 0.5rem; }
+        .detail-box {
+            background: rgba(0,0,0,0.2);
+            border-radius: var(--radius);
+            padding: 0.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            max-height: 250px;
+            overflow-y: auto;
+            margin-bottom: 0.5rem;
+        }
         .char-count { text-align: right; font-size: 0.65rem; opacity: 0.8; }
         .char-count.warning { color: #fbbf24; font-weight: 600; }
         .char-count.error { color: #fca5a5; font-weight: 600; }
+
+        /* Alerts */
         .alert { padding: 0.5rem 0.75rem; border-radius: var(--radius); margin-bottom: 0.5rem; display: none; align-items: center; gap: 0.5rem; font-size: 0.75rem; }
         .alert.show { display: flex; }
         .alert-error { background: #fee2e2; border: 1px solid #fecaca; color: #991b1b; }
         .alert-warning { background: #fef3c7; border: 1px solid #fde68a; color: #92400e; }
         .alert-info { background: #dbeafe; border: 1px solid #bfdbfe; color: #1e40af; }
+
+        /* Limit Counter */
         .limit-counter {
-            position: fixed; bottom: 1rem; right: 1rem; background: var(--bg-primary); border: 1px solid var(--border);
-            border-radius: var(--radius-lg); padding: 0.5rem 1rem; box-shadow: var(--shadow-md);
-            font-family: var(--font-mono); font-weight: 700; font-size: 0.875rem; z-index: 100;
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 0.5rem 1rem;
+            box-shadow: var(--shadow-md);
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 0.875rem;
+            z-index: 100;
         }
         .limit-counter.warning { border-color: var(--warning); color: var(--warning); }
         .limit-counter.error { border-color: var(--error); color: var(--error); animation: pulse 1s infinite; }
         @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+
+        /* Modal Genérico */
         .modal-overlay {
-            position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6);
-            display: none; align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(4px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
         }
         .modal-overlay.show { display: flex; }
         .modal {
-            background: var(--bg-primary); border-radius: var(--radius-lg); padding: 1.5rem;
-            max-width: 650px; width: 90%; max-height: 85vh; overflow-y: auto; box-shadow: var(--shadow-md);
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            max-width: 650px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-md);
             animation: modalSlide 0.2s ease-out;
         }
-        @keyframes modalSlide { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes modalSlide {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
         .modal-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+        .modal-content { font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem; }
         .modal-actions { display: flex; gap: 0.5rem; justify-content: flex-end; margin-top: 1rem; }
         .btn-modal { padding: 0.5rem 1rem; border-radius: var(--radius); font-weight: 600; font-size: 0.875rem; cursor: pointer; border: none; }
         .btn-primary { background: var(--primary); color: white; }
         .btn-secondary { background: var(--bg-tertiary); color: var(--text-secondary); }
-        .tasy-summary-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin: 0.75rem 0; }
-        .tasy-summary-table th, .tasy-summary-table td { border-bottom: 1px solid var(--border); padding: 0.5rem 0.25rem; text-align: left; }
+
+        /* Tabela resumo no modal TASY */
+        .tasy-summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            margin: 0.75rem 0;
+        }
+        .tasy-summary-table th, .tasy-summary-table td {
+            border-bottom: 1px solid var(--border);
+            padding: 0.5rem 0.25rem;
+            text-align: left;
+        }
+        .tasy-summary-table th { font-weight: 700; color: var(--primary); }
         .tasy-grandtotal { font-weight: 800; font-size: 1rem; margin-top: 0.5rem; text-align: right; }
-        .payment-options { background: var(--bg-secondary); border-radius: var(--radius); padding: 0.75rem; margin-top: 0.75rem; font-size: 0.8rem; }
+        .payment-options {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+        }
         .payment-options h4 { margin-bottom: 0.5rem; color: var(--primary); }
         .installments-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
-        .installment-badge { background: var(--bg-primary); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.25rem 0.5rem; font-family: var(--font-mono); }
-        .admin-panel { display: none; background: var(--bg-primary); border: 2px solid var(--primary); border-radius: var(--radius-lg); padding: 1rem; margin-bottom: 1rem; }
+        .installment-badge {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0.25rem 0.5rem;
+            font-family: var(--font-mono);
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            display: none;
+            background: var(--bg-primary);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-lg);
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
         .admin-panel.show { display: block; }
         .admin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem; max-height: 400px; overflow-y: auto; }
         .admin-item { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.5rem; }
@@ -185,219 +387,588 @@
     </style>
 </head>
 <body>
-<div class="container">
-    <header class="header">
-        <div class="header-title"><h1>🏥 CDI Calc Pro</h1><p>Centralizado | Preços via JSON</p></div>
-        <div style="display: flex; align-items: center;">
-            <button class="admin-btn" onclick="openPasswordModal()">⚙️ Admin</button>
-            <button class="theme-toggle" onclick="toggleTheme()" id="themeIcon">🌙</button>
-        </div>
-    </header>
+    <div class="container">
+        <header class="header">
+            <div class="header-title">
+                <h1>🏥 CDI Calc Pro</h1>
+                <p>Centro de Diagnóstico por Imagem | Endoscopia & Colonoscopia</p>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <button class="admin-btn" onclick="openPasswordModal()">⚙️ Admin</button>
+                <button class="theme-toggle" onclick="toggleTheme()" id="themeIcon">🌙</button>
+            </div>
+        </header>
 
-    <div id="adminPanel" class="admin-panel">
-        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
-            <div class="admin-title">⚙️ Painel Administrativo</div>
-            <button onclick="closeAdminPanel()" style="background:none; border:none; font-size:1.25rem; cursor:pointer;">×</button>
+        <div id="adminPanel" class="admin-panel">
+            <div class="admin-header" style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                <div class="admin-title">⚙️ Painel Administrativo</div>
+                <button class="admin-close" onclick="closeAdminPanel()" style="background:none; border:none; font-size:1.25rem; cursor:pointer;">×</button>
+            </div>
+            <div id="adminGrid" class="admin-grid"></div>
+            <div class="modal-actions" style="margin-top:1rem;">
+                <button class="btn-modal btn-secondary" onclick="closeAdminPanel()">Cancelar</button>
+                <button class="btn-modal btn-primary" onclick="saveAdminValues()">💾 Salvar</button>
+            </div>
         </div>
-        <div class="admin-actions" style="margin-bottom: 1rem;">
-            <button class="btn-modal btn-secondary" onclick="reloadRemotePrices()">🔄 Recarregar Preços do Servidor</button>
+
+        <!-- Modal Senha -->
+        <div id="passwordOverlay" class="password-overlay">
+            <div class="password-box">
+                <div class="password-title">🔒 Acesso Restrito</div>
+                <input type="password" class="password-input" id="passwordInput" placeholder="Senha" onkeypress="if(event.key==='Enter')checkPassword()">
+                <div class="password-error" id="passwordError" style="color:#ef4444; display:none;">Senha incorreta!</div>
+                <button class="btn-modal btn-primary" onclick="checkPassword()" style="width:100%;">Entrar</button>
+                <button class="btn-modal btn-secondary" onclick="closePasswordModal()" style="width:100%; margin-top:0.5rem;">Cancelar</button>
+            </div>
         </div>
-        <div id="adminGrid" class="admin-grid"></div>
-        <div class="modal-actions" style="margin-top:1rem;">
-            <button class="btn-modal btn-secondary" onclick="closeAdminPanel()">Cancelar</button>
-            <button class="btn-modal btn-primary" onclick="saveAdminValues()">💾 Salvar (local)</button>
+
+        <!-- Modal de confirmação múltipla -->
+        <div id="confirmModal" class="modal-overlay">
+            <div class="modal">
+                <div class="modal-title">⚠️ Confirmar Quantidade</div>
+                <div class="modal-content" id="confirmText">Deseja adicionar outro exame do mesmo tipo?</div>
+                <div class="modal-actions">
+                    <button class="btn-modal btn-secondary" onclick="cancelAdd()">Cancelar</button>
+                    <button class="btn-modal btn-primary" onclick="confirmAdd()">Confirmar</button>
+                </div>
+            </div>
         </div>
+
+        <!-- Modal de validação TASY com formas de pagamento -->
+        <div id="tasyConfirmModal" class="modal-overlay">
+            <div class="modal" style="max-width: 700px;">
+                <div class="modal-title">📋 Confirmar Cópia para TASY</div>
+                <div id="tasySummaryContent" class="modal-content" style="max-height: 50vh; overflow-y: auto;"></div>
+                <div id="paymentOptionsContainer" class="payment-options"></div>
+                <div class="modal-actions">
+                    <button class="btn-modal btn-secondary" onclick="closeTasyModal()">Cancelar</button>
+                    <button class="btn-modal btn-primary" onclick="confirmCopyTasy()">Confirmar e Copiar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-grid">
+            <div class="left-column">
+                <div class="card">
+                    <div class="card-header"><div class="card-icon">📍</div><div class="card-title">Origem</div></div>
+                    <div class="radio-group">
+                        <label class="radio-card"><input type="radio" name="origem" value="eletivo" checked onchange="updateState()"><div class="radio-content">📅 Eletivo</div></label>
+                        <label class="radio-card"><input type="radio" name="origem" value="prontosocorro" onchange="updateState()"><div class="radio-content">🚨 Pronto-Socorro</div></label>
+                    </div>
+                    <div id="alertPS" class="alert alert-error">⚠️ Pronto-Socorro não permite horário diferenciado nem convênio.</div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><div class="card-icon">👤</div><div class="card-title">Tipo</div></div>
+                    <div class="radio-group">
+                        <label class="radio-card" id="radioParticular"><input type="radio" name="tipo" value="particular" checked onchange="updateState()"><div class="radio-content">💳 Particular</div></label>
+                        <label class="radio-card" id="radioPartConv"><input type="radio" name="tipo" value="partconv" onchange="updateState()"><div class="radio-content">🏥 Part Conv</div></label>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><div class="card-icon">🕐</div><div class="card-title">Período</div></div>
+                    <div class="radio-group">
+                        <label class="radio-card" id="labelNormal"><input type="radio" name="periodo" value="normal" checked onchange="updateState()"><div class="radio-content">☀️ Normal</div></label>
+                        <label class="radio-card" id="labelEspecial"><input type="radio" name="periodo" value="especial" onchange="updateState()"><div class="radio-content">🌙 Dom/Fer/22-6h</div></label>
+                    </div>
+                    <div id="alertEspecial" class="alert alert-info">ℹ️ RMs com valores diferenciados. Part Conv = Particular nestes pacotes (apenas RM/TC).</div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><div class="card-icon">🔬</div><div class="card-title">Exames</div></div>
+                    <!-- Botões de filtro por categoria -->
+                    <div class="category-filters">
+                        <button class="filter-btn active" data-category="rmtc" onclick="setCategory('rmtc')">📊 TC / RM</button>
+                        <button class="filter-btn" data-category="endocolono" onclick="setCategory('endocolono')">🔍 EDA / COLONO</button>
+                    </div>
+                    <div class="search-box"><span class="search-icon">🔍</span><input type="text" class="search-input" id="searchInput" placeholder="Buscar por nome ou código..." onkeyup="filterExames()"></div>
+                    <div id="alertContraste" class="alert alert-warning">⚠️ Exames com "COM CONTRASTE" já incluem contraste (Angioressonância, RM AVC, TC Angio, TC Cor, TC AVC e RM C/Contr).</div>
+                    <div id="alertLimite" class="alert alert-error">🚫 Limite máximo: 9 exames.</div>
+                    <div class="exam-list" id="examList"></div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><div class="card-icon">➕</div><div class="card-title">Adicionais</div></div>
+                    <div class="extras-grid">
+                        <label class="extra-card" id="cardContraste"><input type="checkbox" id="chkContraste" onchange="toggleExtra('contraste')"><div class="extra-title">Contraste</div><div class="extra-value">R$ 360,00</div></label>
+                        <label class="extra-card" id="cardAnestesia"><input type="checkbox" id="chkAnestesia" onchange="toggleExtra('anestesia')"><div class="extra-title">Sedação</div><div class="extra-value">R$ 1.073,00</div></label>
+                    </div>
+                </div>
+            </div>
+            <div class="right-column">
+                <div class="result-card">
+                    <div class="result-header"><div><div class="result-label">Total</div><div class="result-value" id="totalValue">R$ 0,00</div></div><div class="result-actions"><button class="btn btn-white" onclick="copyValor()">💰 Valor</button><button class="btn btn-white" onclick="openTasyConfirm()">📋 TASY</button><button class="btn btn-outline" onclick="gerarPDF()">📄 PDF</button></div></div>
+                    <div class="detail-box" id="detailBox">Selecione os exames...</div>
+                    <div class="char-count" id="charCount"></div>
+                    <button class="btn btn-outline" onclick="resetAll()" style="width:100%; margin-top:0.5rem;">🔄 Limpar</button>
+                </div>
+            </div>
+        </div>
+        <div class="limit-counter" id="limitCounter">0/9</div>
     </div>
 
-    <div id="passwordOverlay" class="password-overlay"><div class="password-box"><div class="password-title">🔒 Acesso Restrito</div><input type="password" id="passwordInput" placeholder="Senha" onkeypress="if(event.key==='Enter')checkPassword()"><div id="passwordError" style="color:#ef4444; display:none;">Senha incorreta!</div><button class="btn-modal btn-primary" onclick="checkPassword()" style="width:100%;">Entrar</button><button class="btn-modal btn-secondary" onclick="closePasswordModal()" style="width:100%; margin-top:0.5rem;">Cancelar</button></div></div>
-    <div id="confirmModal" class="modal-overlay"><div class="modal"><div class="modal-title">⚠️ Confirmar Quantidade</div><div class="modal-content" id="confirmText"></div><div class="modal-actions"><button class="btn-modal btn-secondary" onclick="cancelAdd()">Cancelar</button><button class="btn-modal btn-primary" onclick="confirmAdd()">Confirmar</button></div></div></div>
-    <div id="tasyConfirmModal" class="modal-overlay"><div class="modal" style="max-width:700px"><div class="modal-title">📋 Confirmar Cópia para TASY</div><div id="tasySummaryContent" class="modal-content"></div><div id="paymentOptionsContainer" class="payment-options"></div><div class="modal-actions"><button class="btn-modal btn-secondary" onclick="closeTasyModal()">Cancelar</button><button class="btn-modal btn-primary" onclick="confirmCopyTasy()">Confirmar e Copiar</button></div></div></div>
+    <script>
+        const ADMIN_PASSWORD = 'contasparticulares';
+        let currentCategory = 'rmtc'; // 'rmtc' ou 'endocolono'
 
-    <div class="main-grid">
-        <div class="left-column">
-            <div class="card"><div class="card-header"><div class="card-icon">📍</div><div class="card-title">Origem</div></div><div class="radio-group"><label class="radio-card"><input type="radio" name="origem" value="eletivo" checked onchange="updateState()"><div class="radio-content">📅 Eletivo</div></label><label class="radio-card"><input type="radio" name="origem" value="prontosocorro" onchange="updateState()"><div class="radio-content">🚨 Pronto-Socorro</div></label></div><div id="alertPS" class="alert alert-error">⚠️ Pronto-Socorro não permite horário diferenciado nem convênio.</div></div>
-            <div class="card"><div class="card-header"><div class="card-icon">👤</div><div class="card-title">Tipo</div></div><div class="radio-group"><label class="radio-card" id="radioParticular"><input type="radio" name="tipo" value="particular" checked onchange="updateState()"><div class="radio-content">💳 Particular</div></label><label class="radio-card" id="radioPartConv"><input type="radio" name="tipo" value="partconv" onchange="updateState()"><div class="radio-content">🏥 Part Conv</div></label></div></div>
-            <div class="card"><div class="card-header"><div class="card-icon">🕐</div><div class="card-title">Período</div></div><div class="radio-group"><label class="radio-card" id="labelNormal"><input type="radio" name="periodo" value="normal" checked onchange="updateState()"><div class="radio-content">☀️ Normal</div></label><label class="radio-card" id="labelEspecial"><input type="radio" name="periodo" value="especial" onchange="updateState()"><div class="radio-content">🌙 Dom/Fer/22-6h</div></label></div><div id="alertEspecial" class="alert alert-info">ℹ️ RMs com valores diferenciados. Part Conv = Particular nestes pacotes (apenas RM/TC).</div></div>
-            <div class="card"><div class="card-header"><div class="card-icon">🔬</div><div class="card-title">Exames</div></div><div class="category-filters"><button class="filter-btn active" data-category="rmtc" onclick="setCategory('rmtc')">📊 TC / RM</button><button class="filter-btn" data-category="endocolono" onclick="setCategory('endocolono')">🔍 EDA / COLONO</button></div><div class="search-box"><span class="search-icon">🔍</span><input type="text" class="search-input" id="searchInput" placeholder="Buscar por nome ou código..." onkeyup="filterExames()"></div><div id="alertContraste" class="alert alert-warning">⚠️ Exames com "COM CONTRASTE" já incluem contraste.</div><div id="alertLimite" class="alert alert-error">🚫 Limite máximo: 9 exames.</div><div class="exam-list" id="examList"></div></div>
-            <div class="card"><div class="card-header"><div class="card-icon">➕</div><div class="card-title">Adicionais</div></div><div class="extras-grid"><label class="extra-card" id="cardContraste"><input type="checkbox" id="chkContraste" onchange="toggleExtra('contraste')"><div class="extra-title">Contraste</div><div class="extra-value">R$ 360,00</div></label><label class="extra-card" id="cardAnestesia"><input type="checkbox" id="chkAnestesia" onchange="toggleExtra('anestesia')"><div class="extra-title">Sedação</div><div class="extra-value">R$ 1.073,00</div></label></div></div>
-        </div>
-        <div class="right-column"><div class="result-card"><div class="result-header"><div><div class="result-label">Total</div><div class="result-value" id="totalValue">R$ 0,00</div></div><div class="result-actions"><button class="btn btn-white" onclick="copyValor()">💰 Valor</button><button class="btn btn-white" onclick="openTasyConfirm()">📋 TASY</button><button class="btn btn-outline" onclick="gerarPDF()">📄 PDF</button></div></div><div class="detail-box" id="detailBox">Selecione os exames...</div><div class="char-count" id="charCount"></div><button class="btn btn-outline" onclick="resetAll()" style="width:100%; margin-top:0.5rem;">🔄 Limpar</button></div></div>
-    </div>
-    <div class="limit-counter" id="limitCounter">0/9</div>
-</div>
+        // ======================= EXAMES TC / RM (originais, mantidos) =======================
+        const examDataRMTC = {
+            'rm_angio': { code: '88000164', name: 'RM - Angioressonância (pacote) COM CONTRASTE', category: 'rmtc', particular: { normal: 1275, especial: 1275 }, particular_segundo: { normal: 1020, especial: 1020 }, partconv: { normal: 1147.5, especial: 1147.5 }, partconv_segundo: { normal: 918, especial: 918 }, hasEspecial: false, onlyEspecial: false, igualParticular: false, incluiContraste: true },
+            'rm_avc': { code: '89101229', name: 'RM - Ressonância (Pacote AVC - crânio + angio) COM CONTRASTE', category: 'rmtc', particular: { normal: 2062, especial: 2062 }, particular_segundo: { normal: 1649.6, especial: 1649.6 }, partconv: { normal: 1855.8, especial: 1855.8 }, partconv_segundo: { normal: 1484.64, especial: 1484.64 }, incluiContraste: true },
+            'rm_mag': { code: '88000154', name: 'RM - Ressonância Magnética (pacote)', category: 'rmtc', hasEspecial: true, particular: { normal: 977, especial: 782 }, particular_segundo: { normal: 781.6, especial: 625.6 }, partconv: { normal: 879.3, especial: 782 }, partconv_segundo: { normal: 703.44, especial: 625.6 }, igualParticular: true },
+            'rm_cont': { code: null, name: 'RM - Ressonância Magnética Com Contraste (pacote)', category: 'rmtc', hasEspecial: true, onlyEspecial: true, particular: { normal: null, especial: 1070 }, particular_segundo: { normal: null, especial: 856 }, partconv: { normal: null, especial: 1070 }, partconv_segundo: { normal: null, especial: 856 }, igualParticular: true, incluiContraste: true },
+            'tc_ang': { code: '88000010', name: 'TC - Angiotomografia (pacote) COM CONTRASTE', category: 'rmtc', particular: { normal: 1118, especial: 1118 }, particular_segundo: { normal: 894.4, especial: 894.4 }, partconv: { normal: 1006.2, especial: 1006.2 }, partconv_segundo: { normal: 804.96, especial: 804.96 }, incluiContraste: true },
+            'tc_cor': { code: '88000295', name: 'TC - Angiotomografia de coronárias (pacote) COM CONTRASTE', category: 'rmtc', particular: { normal: 1118, especial: 1118 }, particular_segundo: { normal: 894.4, especial: 894.4 }, partconv: { normal: 1006.2, especial: 1006.2 }, partconv_segundo: { normal: 804.96, especial: 804.96 }, incluiContraste: true },
+            'tc_avc': { code: '88000294', name: 'TC - Tomografia (Pacote AVC - crânio + angio) COM CONTRASTE', category: 'rmtc', particular: { normal: 1554, especial: 1554 }, particular_segundo: { normal: 1243.2, especial: 1243.2 }, partconv: { normal: 1398.6, especial: 1398.6 }, partconv_segundo: { normal: 1118.88, especial: 1118.88 }, incluiContraste: true },
+            'tc_abd': { code: '88000293', name: 'TC - Tomografia abdômen total (pacote)', category: 'rmtc', particular: { normal: 738, especial: 738 }, particular_segundo: { normal: 590.4, especial: 590.4 }, partconv: { normal: 664.2, especial: 664.2 }, partconv_segundo: { normal: 531.36, especial: 531.36 } },
+            'tc_comp': { code: '88000292', name: 'TC - Tomografia computadorizada (pacote)', category: 'rmtc', particular: { normal: 521, especial: 521 }, particular_segundo: { normal: 416.8, especial: 416.8 }, partconv: { normal: 468.9, especial: 468.9 }, partconv_segundo: { normal: 375.12, especial: 375.12 } }
+        };
 
-<script>
-    const ADMIN_PASSWORD = 'contasparticulares';
-    let currentCategory = 'rmtc';
-    let examData = {}; // será preenchido com fallback + remoto
-    let state = { origem: 'eletivo', tipo: 'particular', periodo: 'normal', exames: {}, contraste: false, anestesia: false, pendingAdd: null };
-    
-    // ---------- DADOS PADRÃO (FALLBACK) ----------
-    const fallbackRMTC = {
-        'rm_angio': { code: '88000164', name: 'RM - Angioressonância (pacote) COM CONTRASTE', category: 'rmtc', particular: { normal: 1275, especial: 1275 }, particular_segundo: { normal: 1020, especial: 1020 }, partconv: { normal: 1147.5, especial: 1147.5 }, partconv_segundo: { normal: 918, especial: 918 }, hasEspecial: false, onlyEspecial: false, igualParticular: false, incluiContraste: true },
-        'rm_avc': { code: '89101229', name: 'RM - Ressonância (Pacote AVC - crânio + angio) COM CONTRASTE', category: 'rmtc', particular: { normal: 2062, especial: 2062 }, particular_segundo: { normal: 1649.6, especial: 1649.6 }, partconv: { normal: 1855.8, especial: 1855.8 }, partconv_segundo: { normal: 1484.64, especial: 1484.64 }, incluiContraste: true },
-        'rm_mag': { code: '88000154', name: 'RM - Ressonância Magnética (pacote)', category: 'rmtc', hasEspecial: true, particular: { normal: 977, especial: 782 }, particular_segundo: { normal: 781.6, especial: 625.6 }, partconv: { normal: 879.3, especial: 782 }, partconv_segundo: { normal: 703.44, especial: 625.6 }, igualParticular: true },
-        'rm_cont': { code: null, name: 'RM - Ressonância Magnética Com Contraste (pacote)', category: 'rmtc', hasEspecial: true, onlyEspecial: true, particular: { normal: null, especial: 1070 }, particular_segundo: { normal: null, especial: 856 }, partconv: { normal: null, especial: 1070 }, partconv_segundo: { normal: null, especial: 856 }, igualParticular: true, incluiContraste: true },
-        'tc_ang': { code: '88000010', name: 'TC - Angiotomografia (pacote) COM CONTRASTE', category: 'rmtc', particular: { normal: 1118, especial: 1118 }, particular_segundo: { normal: 894.4, especial: 894.4 }, partconv: { normal: 1006.2, especial: 1006.2 }, partconv_segundo: { normal: 804.96, especial: 804.96 }, incluiContraste: true },
-        'tc_cor': { code: '88000295', name: 'TC - Angiotomografia de coronárias (pacote) COM CONTRASTE', category: 'rmtc', particular: { normal: 1118, especial: 1118 }, particular_segundo: { normal: 894.4, especial: 894.4 }, partconv: { normal: 1006.2, especial: 1006.2 }, partconv_segundo: { normal: 804.96, especial: 804.96 }, incluiContraste: true },
-        'tc_avc': { code: '88000294', name: 'TC - Tomografia (Pacote AVC - crânio + angio) COM CONTRASTE', category: 'rmtc', particular: { normal: 1554, especial: 1554 }, particular_segundo: { normal: 1243.2, especial: 1243.2 }, partconv: { normal: 1398.6, especial: 1398.6 }, partconv_segundo: { normal: 1118.88, especial: 1118.88 }, incluiContraste: true },
-        'tc_abd': { code: '88000293', name: 'TC - Tomografia abdômen total (pacote)', category: 'rmtc', particular: { normal: 738, especial: 738 }, particular_segundo: { normal: 590.4, especial: 590.4 }, partconv: { normal: 664.2, especial: 664.2 }, partconv_segundo: { normal: 531.36, especial: 531.36 } },
-        'tc_comp': { code: '88000292', name: 'TC - Tomografia computadorizada (pacote)', category: 'rmtc', particular: { normal: 521, especial: 521 }, particular_segundo: { normal: 416.8, especial: 416.8 }, partconv: { normal: 468.9, especial: 468.9 }, partconv_segundo: { normal: 375.12, especial: 375.12 } }
-    };
-    const fallbackEndoColono = {
-        'colonoscopia_sem_biopsia': { code: '88800096', name: 'PACOTE COLONOSCOPIA OU RETOSSIGMOIDOSCOPIA FLEXÍVEL', category: 'endocolono', particular: { normal: 2471, especial: 2471 }, particular_segundo: { normal: 2471*0.8, especial: 2471*0.8 }, partconv: { normal: 2471*0.9, especial: 2471*0.9 }, partconv_segundo: { normal: (2471*0.9)*0.8, especial: (2471*0.9)*0.8 } },
-        'colonoscopia_biopsia': { code: '88800097', name: 'PACOTE COLONOSCOPIA + BIÓPSIA (ANATOMO)', category: 'endocolono', particular: { normal: 3074, especial: 3074 }, particular_segundo: { normal: 3074*0.8, especial: 3074*0.8 }, partconv: { normal: 3074*0.9, especial: 3074*0.9 }, partconv_segundo: { normal: (3074*0.9)*0.8, especial: (3074*0.9)*0.8 } },
-        'eda_hpylori': { code: '88800089', name: 'PACOTE ENDOSCOPIA DIGESTIVA ALTA COM OU SEM PESQUISA DE H PYLORI (TESTE UREASE, SEM ANATOMO)', category: 'endocolono', particular: { normal: 2064, especial: 2064 }, particular_segundo: { normal: 2064*0.8, especial: 2064*0.8 }, partconv: { normal: 2064*0.9, especial: 2064*0.9 }, partconv_segundo: { normal: (2064*0.9)*0.8, especial: (2064*0.9)*0.8 } },
-        'eda_biopsia': { code: '88800090', name: 'PACOTE ENDOSCOPIA DIGESTIVA ALTA + BIOPSIA (H PYLORI + ANATOMO)', category: 'endocolono', particular: { normal: 2314, especial: 2314 }, particular_segundo: { normal: 2314*0.8, especial: 2314*0.8 }, partconv: { normal: 2314*0.9, especial: 2314*0.9 }, partconv_segundo: { normal: (2314*0.9)*0.8, especial: (2314*0.9)*0.8 } },
-        'sonoendoscopia': { code: '88000630', name: 'PACOTE SONOENDOSCOPIA', category: 'endocolono', particular: { normal: 1206.81, especial: 1206.81 }, particular_segundo: { normal: 1206.81*0.8, especial: 1206.81*0.8 }, partconv: { normal: 1206.81*0.9, especial: 1206.81*0.9 }, partconv_segundo: { normal: (1206.81*0.9)*0.8, especial: (1206.81*0.9)*0.8 } }
-    };
-    // mescla fallback completo (apenas para ter todos os exames, mas vamos carregar remoto)
-    const fullFallback = { ...fallbackRMTC, ...fallbackEndoColono };
-    
-    // ---------- ABREVIAÇÕES ----------
-    const abreviacoes = {
-        'RM - Angioressonância (pacote) COM CONTRASTE':'RM Angio','RM - Ressonância (Pacote AVC - crânio + angio) COM CONTRASTE':'RM AVC','RM - Ressonância Magnética (pacote)':'RM','RM - Ressonância Magnética Com Contraste (pacote)':'RM C/Contr','TC - Angiotomografia (pacote) COM CONTRASTE':'TC Angio','TC - Angiotomografia de coronárias (pacote) COM CONTRASTE':'TC Cor','TC - Tomografia (Pacote AVC - crânio + angio) COM CONTRASTE':'TC AVC','TC - Tomografia abdômen total (pacote)':'TC Abd','TC - Tomografia computadorizada (pacote)':'TC',
-        'PACOTE SONOENDOSCOPIA':'SonoEndo','PACOTE ENDOSCOPIA DIGESTIVA ALTA COM OU SEM PESQUISA DE H PYLORI (TESTE UREASE, SEM ANATOMO)':'EDA Hpylori','PACOTE ENDOSCOPIA DIGESTIVA ALTA + BIOPSIA (H PYLORI + ANATOMO)':'EDA Biópsia','PACOTE COLONOSCOPIA OU RETOSSIGMOIDOSCOPIA FLEXÍVEL':'Colonoscopia','PACOTE COLONOSCOPIA + BIÓPSIA (ANATOMO)':'Colono Biópsia','Contraste':'Contr','Anestesia / Sedação':'Sed'
-    };
-    
-    // ---------- FUNÇÕES AUXILIARES ----------
-    function isAvailable(key) { let ex = examData[key]; if (!ex) return false; if (state.periodo === 'normal') { if (ex.onlyEspecial) return false; return state.tipo === 'particular' ? ex.particular.normal !== null : ex.partconv.normal !== null; } return true; }
-    function getValor(key, segundo) { let ex = examData[key], t = state.tipo, p = state.periodo; let v = segundo ? (t==='particular'?ex.particular_segundo[p]:ex.partconv_segundo[p]) : (t==='particular'?ex.particular[p]:ex.partconv[p]); if(v===null && p==='especial') v = segundo ? (t==='particular'?ex.particular_segundo.normal:ex.partconv_segundo.normal) : (t==='particular'?ex.particular.normal:ex.partconv.normal); return v; }
-    function contarExames() { return Object.values(state.exames).reduce((a,b)=>a+b,0); }
-    function hasEspecial(key) { return examData[key]?.hasEspecial && state.periodo === 'especial'; }
-    function abreviar(nome){ let limpo = nome.replace(/\(pacote\)/gi,'').replace(/COM CONTRASTE/gi,'').trim(); return abreviacoes[limpo] || (limpo.length>12?limpo.substring(0,12):limpo); }
-    
-    const endoColonoPriorityOrder = ['colonoscopia_sem_biopsia','colonoscopia_biopsia','eda_hpylori','eda_biopsia'];
-    function getOrderedEndoColonoKeys() { const allKeys = Object.keys(examData).filter(key => examData[key]?.category === 'endocolono'); const priority = []; const other = []; for (let k of allKeys) { if (endoColonoPriorityOrder.includes(k)) priority.push(k); else other.push(k); } priority.sort((a,b)=>endoColonoPriorityOrder.indexOf(a)-endoColonoPriorityOrder.indexOf(b)); other.sort((a,b)=>examData[a].name.localeCompare(examData[b].name)); return [...priority, ...other]; }
-    
-    function renderExames() {
-        const container = document.getElementById('examList'); let html = ''; let keys = [];
-        if (currentCategory === 'rmtc') { keys = Object.keys(examData).filter(k=>examData[k]?.category==='rmtc'); keys.sort((a,b)=>examData[a].name.localeCompare(examData[b].name)); }
-        else { keys = getOrderedEndoColonoKeys(); }
-        for (let key of keys) { let ex = examData[key]; if(!ex) continue; let disp = isAvailable(key), esp = hasEspecial(key), ipc = (state.tipo==='partconv' && state.periodo==='especial' && ex.igualParticular); let v100='', v20=''; if(disp){ let a=getValor(key,false), b=getValor(key,true); v100=`100%: R$ ${a.toLocaleString('pt-BR',{minFractionDigits:2})}`; v20=`20%: R$ ${b.toLocaleString('pt-BR',{minFractionDigits:2})}`; } let tag = esp ? '<span class="exam-tag">Dif</span>' : (ipc ? '<span class="exam-tag">=Part</span>' : ''); let indispMsg = !disp ? '<div style="font-size:0.65rem;">Só horário dif.</div>' : ''; html += `<div class="exam-item ${!disp?'disabled':''}" data-key="${key}" data-search="${ex.name.toLowerCase()} ${ex.code||''}"><div class="exam-info"><div class="exam-code">${ex.code||'S/Código'}</div><div class="exam-name">${ex.name}${tag}</div>${disp?`<div class="exam-values">${v100} | ${v20}</div>`:indispMsg}</div><div class="exam-controls"><button class="qty-btn" onclick="handleQtyClick('${key}', -1)" ${!disp?'disabled':''}>−</button><span class="qty-display" id="q-${key}">${state.exames[key]||0}</span><button class="qty-btn" onclick="handleQtyClick('${key}', 1)" ${!disp?'disabled':''}>+</button></div></div>`; }
-        container.innerHTML = html;
-    }
-    window.handleQtyClick = function(key, delta) { if(!isAvailable(key)) return; let atual = state.exames[key]||0, novo = atual + delta, total = contarExames(); if(delta > 0 && novo >= 2 && atual >= 1) { state.pendingAdd = { key, delta, novo }; document.getElementById('confirmText').innerHTML = `Você está adicionando <strong>${novo}x ${examData[key].name}</strong>.<br><br>Lembre-se: desconto de 20% a partir do 2º pacote.`; document.getElementById('confirmModal').classList.add('show'); return; } if(delta > 0 && total >= 9) { document.getElementById('alertLimite').classList.add('show'); setTimeout(()=>document.getElementById('alertLimite').classList.remove('show'),2000); return; } if(novo>=0){ state.exames[key]=novo; document.getElementById(`q-${key}`).textContent=novo; checkContraste(); calcular(); } };
-    window.confirmAdd = function() { if(state.pendingAdd){ let {key, delta, novo}=state.pendingAdd; let currentTotal = contarExames(); if(currentTotal + delta > 9){ document.getElementById('alertLimite').classList.add('show'); setTimeout(()=>document.getElementById('alertLimite').classList.remove('show'),2000); state.pendingAdd=null; document.getElementById('confirmModal').classList.remove('show'); return; } state.exames[key]=novo; document.getElementById(`q-${key}`).textContent=novo; checkContraste(); calcular(); state.pendingAdd=null; } document.getElementById('confirmModal').classList.remove('show'); };
-    window.cancelAdd = function() { state.pendingAdd=null; document.getElementById('confirmModal').classList.remove('show'); };
-    function checkContraste() { let temContrasteIncluso = Object.keys(examData).some(key => examData[key].incluiContraste && state.exames[key] > 0); let al = document.getElementById('alertContraste'), cc = document.getElementById('cardContraste'), ch = document.getElementById('chkContraste'); if(temContrasteIncluso){ al.classList.add('show'); cc.classList.add('disabled'); if(state.contraste){ state.contraste=false; ch.checked=false; cc.classList.remove('selected'); } } else { al.classList.remove('show'); cc.classList.remove('disabled'); } }
-    function updateProntoSocorro() { const isPS = state.origem === 'prontosocorro'; const radioPartConv = document.getElementById('radioPartConv'); const labelEspecial = document.getElementById('labelEspecial'); if (isPS) { radioPartConv.classList.add('disabled'); labelEspecial.classList.add('disabled'); if (state.tipo === 'partconv') { document.querySelector('input[name="tipo"][value="particular"]').checked = true; state.tipo = 'particular'; } if (state.periodo === 'especial') { document.querySelector('input[name="periodo"][value="normal"]').checked = true; state.periodo = 'normal'; } } else { radioPartConv.classList.remove('disabled'); labelEspecial.classList.remove('disabled'); } }
-    function updateState() { state.origem = document.querySelector('input[name="origem"]:checked').value; state.tipo = document.querySelector('input[name="tipo"]:checked').value; state.periodo = document.querySelector('input[name="periodo"]:checked').value; updateProntoSocorro(); document.getElementById('alertPS').classList.toggle('show', state.origem === 'prontosocorro'); document.getElementById('alertEspecial').classList.toggle('show', state.periodo === 'especial'); renderExames(); checkContraste(); calcular(); }
-    window.toggleExtra = function(t){ if(t==='contraste'){ let temContrasteIncluso = Object.keys(examData).some(key => examData[key].incluiContraste && state.exames[key] > 0); if(temContrasteIncluso){ document.getElementById('chkContraste').checked=false; return; } state.contraste=document.getElementById('chkContraste').checked; document.getElementById('cardContraste').classList.toggle('selected', state.contraste); } else { state.anestesia=document.getElementById('chkAnestesia').checked; document.getElementById('cardAnestesia').classList.toggle('selected', state.anestesia); } calcular(); };
-    window.filterExames = function(){ let termo=document.getElementById('searchInput').value.toLowerCase(); document.querySelectorAll('.exam-item').forEach(el=>{ el.classList.toggle('hidden', !el.getAttribute('data-search').includes(termo)); }); };
-    function calcular(){ let itens=[]; let total=0; Object.entries(state.exames).forEach(([key,qtd])=>{ if(qtd>0 && isAvailable(key)){ let ex=examData[key]; let v100=getValor(key,false), v20=getValor(key,true); let nome=ex.name+(hasEspecial(key)?' (Dif)':''); for(let i=0;i<qtd;i++) itens.push({nome, abrev:abreviar(nome), v100, v20}); } }); itens.sort((a,b)=>b.v100-a.v100); let detalhe=[]; itens.forEach((it,idx)=>{ if(idx===0){ total+=it.v100; detalhe.push({nome:it.nome,abrev:it.abrev,perc:'100%',valor:it.v100}); } else { total+=it.v20; detalhe.push({nome:it.nome,abrev:it.abrev,perc:'20%',valor:it.v20}); } }); let temContrasteIncluso = Object.keys(examData).some(key => examData[key].incluiContraste && state.exames[key] > 0); if(state.contraste && !temContrasteIncluso){ total+=360; detalhe.push({nome:'Contraste',abrev:'Contr',perc:'100%',valor:360}); } if(state.anestesia){ total+=1073; detalhe.push({nome:'Anestesia / Sedação',abrev:'Sed',perc:'100%',valor:1073}); } document.getElementById('totalValue').textContent='R$ '+total.toLocaleString('pt-BR',{minFractionDigits:2}); let txt=detalhe.length? detalhe.map(d=>`${d.nome.length>30?d.nome.substring(0,30)+'...':d.nome} (${d.perc}) ${'.'.repeat(35-(d.nome.length>30?30:d.nome.length)-d.perc.length)} R$ ${d.valor.toLocaleString('pt-BR',{minFractionDigits:2})}`).join('\n')+`\n${'='.repeat(50)}\nTOTAL${'.'.repeat(35)} R$ ${total.toLocaleString('pt-BR',{minFractionDigits:2})}` : 'Selecione os exames...'; document.getElementById('detailBox').textContent=txt; let tasy=detalhe.length? detalhe.map((d,i)=>`${d.abrev}(${d.perc}) R$${Math.round(d.valor)}`).join('; ')+`; Tot:R$${Math.round(total)}` : ''; let cc=document.getElementById('charCount'); if(tasy.length>250){ cc.textContent=`⚠️ ${tasy.length}/250 (Excedido)`; cc.className='char-count error'; tasy=tasy.substring(0,247)+'...'; } else if(tasy.length>200){ cc.textContent=`⚠️ ${tasy.length}/250 (Próximo)`; cc.className='char-count warning'; } else { cc.textContent=`${tasy.length}/250 chars`; cc.className='char-count'; } window._total=total; window._tasy=tasy; let c=contarExames(); document.getElementById('limitCounter').textContent=`${c}/9`; document.getElementById('limitCounter').className=`limit-counter ${c>=9?'error':c>=7?'warning':''}`; }
-    window.copyValor = function(){ navigator.clipboard.writeText((window._total||0).toLocaleString('pt-BR',{minimumFractionDigits:2})).then(()=>alert('Valor copiado!')); };
-    function buildPaymentOptionsHTML(total) { let html = `<h4>💳 Formas de Pagamento</h4><p><strong>À vista (Pix / Dinheiro / Débito):</strong> R$ ${total.toLocaleString('pt-BR', {minFractionDigits:2})}</p><p><strong>Cartão de Crédito (sem juros):</strong></p><div class="installments-list">`; const minParcel = 150; let maxParcel = Math.min(6, Math.floor(total / minParcel)); if (maxParcel < 1) maxParcel = 1; for (let i = 1; i <= maxParcel; i++) { let valorParcela = total / i; html += `<div class="installment-badge">${i}x de R$ ${valorParcela.toLocaleString('pt-BR', {minFractionDigits:2})}</div>`; } html += `</div><small>*Parcelamento mínimo de R$ 150 por parcela. Máximo 6x.</small>`; return html; }
-    function buildTasySummaryHTML(){ let items=[]; let totalGeral=0; Object.entries(state.exames).forEach(([key,qtd])=>{ if(qtd>0 && isAvailable(key)){ let ex=examData[key]; let v100=getValor(key,false), v20=getValor(key,true); let exTotal=0; for(let i=0;i<qtd;i++){ if(i===0) exTotal+=v100; else exTotal+=v20; } totalGeral+=exTotal; items.push({name:ex.name+(hasEspecial(key)?' (Dif)':''), quantity:qtd, unitFirst:v100, unitOther:v20, total:exTotal}); } }); let temContrasteIncluso = Object.keys(examData).some(key => examData[key].incluiContraste && state.exames[key] > 0); if(state.contraste && !temContrasteIncluso){ items.push({name:'Contraste', quantity:1, unitFirst:360, unitOther:360, total:360}); totalGeral+=360; } if(state.anestesia){ items.push({name:'Sedação', quantity:1, unitFirst:1073, unitOther:1073, total:1073}); totalGeral+=1073; } let html='<table class="tasy-summary-table"><thead><tr><th>Exame</th><th>Qtd</th><th>Valor unitário (1º)</th><th>Total</th></tr></thead><tbody>'; items.forEach(it=>{ html+=`<tr><td>${it.name}</td><td>${it.quantity}x</td><td>R$ ${it.unitFirst.toLocaleString('pt-BR',{minFractionDigits:2})}${it.quantity>1?` (demais: R$ ${it.unitOther.toLocaleString('pt-BR',{minFractionDigits:2})})`:''}</td><td><strong>R$ ${it.total.toLocaleString('pt-BR',{minFractionDigits:2})}</strong></td></tr>`; }); html+=`</tbody></table><div class="tasy-grandtotal">💰 TOTAL GERAL: R$ ${totalGeral.toLocaleString('pt-BR',{minFractionDigits:2})}</div>`; return {html, totalGeral}; }
-    window.openTasyConfirm = function(){ if(!window._tasy || window._tasy.length===0){ alert('Nenhum exame selecionado para copiar.'); return; } let {html, totalGeral} = buildTasySummaryHTML(); document.getElementById('tasySummaryContent').innerHTML = html; document.getElementById('paymentOptionsContainer').innerHTML = buildPaymentOptionsHTML(totalGeral); document.getElementById('tasyConfirmModal').classList.add('show'); };
-    window.closeTasyModal = function(){ document.getElementById('tasyConfirmModal').classList.remove('show'); };
-    window.confirmCopyTasy = function(){ if(window._tasy){ navigator.clipboard.writeText(window._tasy).then(()=>{ alert('✅ Texto TASY copiado com sucesso!'); closeTasyModal(); }).catch(()=>alert('Erro ao copiar')); } else { alert('Nada para copiar.'); closeTasyModal(); } };
-    window.gerarPDF = function() { const {jsPDF}=window.jspdf; let doc=new jsPDF(); let y=15, w=doc.internal.pageSize.getWidth(); doc.setFillColor(0,102,204); doc.rect(0,0,w,40,'F'); doc.setTextColor(255,255,255); doc.setFontSize(18); doc.text('ORÇAMENTO CDI',w/2,25,{align:'center'}); doc.setFontSize(9); doc.text(new Date().toLocaleString('pt-BR'),w/2,33,{align:'center'}); y=50; doc.setTextColor(0,0,0); doc.setFontSize(10); doc.text(`Origem: ${state.origem==='eletivo'?'Eletivo':'Pronto-Socorro'}`,15,y); y+=6; doc.text(`Tipo: ${state.tipo==='particular'?'Particular':'Part. Convênio'}`,15,y); y+=6; doc.text(`Período: ${state.periodo==='normal'?'Horário Normal':'Dom/Fer/22-6h'}`,15,y); y+=10; let its=[]; let tot=0; Object.entries(state.exames).forEach(([k,q])=>{ if(q>0 && isAvailable(k)){ let ex=examData[k]; let v1=getValor(k,false), v2=getValor(k,true); for(let i=0;i<q;i++){ if(its.length===0){ its.push({n:ex.name,v:v1,p:'100%'}); tot+=v1; } else { its.push({n:ex.name,v:v2,p:'20%'}); tot+=v2; } } } }); let temContrasteInclusoPDF = Object.keys(examData).some(key => examData[key].incluiContraste && state.exames[key] > 0); if(state.contraste && !temContrasteInclusoPDF){ its.push({n:'Contraste',v:360,p:'100%'}); tot+=360; } if(state.anestesia){ its.push({n:'Anestesia / Sedação',v:1073,p:'100%'}); tot+=1073; } if(its.length){ doc.setFontSize(11); doc.setFont(undefined,'bold'); doc.text('ITENS',15,y); y+=8; doc.setFont(undefined,'normal'); its.forEach(it=>{ if(y>280){ doc.addPage(); y=20; } let nm=it.n.length>50?it.n.substring(0,50)+'...':it.n; doc.text(nm,15,y); doc.text(it.p,w-15-40,y); doc.text('R$ '+it.v.toLocaleString('pt-BR',{minFractionDigits:2}),w-15,y,{align:'right'}); y+=6; }); y+=5; doc.setDrawColor(0,102,204); doc.line(15,y,w-15,y); y+=8; doc.setFont(undefined,'bold'); doc.setFontSize(13); doc.text('TOTAL:',15,y); doc.text('R$ '+tot.toLocaleString('pt-BR',{minFractionDigits:2}),w-15,y,{align:'right'}); } doc.save(`orcamento_cdi_${Date.now()}.pdf`); };
-    window.resetAll = function(){ state.exames={}; Object.keys(examData).forEach(k=>state.exames[k]=0); state.contraste=false; state.anestesia=false; document.getElementById('chkContraste').checked=false; document.getElementById('chkAnestesia').checked=false; document.getElementById('cardContraste').classList.remove('selected'); document.getElementById('cardAnestesia').classList.remove('selected'); renderExames(); checkContraste(); calcular(); };
-    window.setCategory = function(cat) { currentCategory = cat; document.querySelectorAll('.filter-btn').forEach(btn => { if (btn.getAttribute('data-category') === cat) btn.classList.add('active'); else btn.classList.remove('active'); }); renderExames(); document.getElementById('searchInput').value = ''; filterExames(); };
-    
-    // ---------- CARREGAMENTO REMOTO DE PREÇOS ----------
-    async function loadRemotePrices() {
-        try {
-            const response = await fetch('precos.json?v=' + Date.now()); // evitar cache
-            if (!response.ok) throw new Error('HTTP ' + response.status);
-            const remoteData = await response.json();
-            // mescla com os dados atuais (preserva estrutura)
-            for (let key in remoteData) {
-                if (examData[key]) {
-                    examData[key].particular = remoteData[key].particular || examData[key].particular;
-                    examData[key].particular_segundo = remoteData[key].particular_segundo || examData[key].particular_segundo;
-                    examData[key].partconv = remoteData[key].partconv || examData[key].partconv;
-                    examData[key].partconv_segundo = remoteData[key].partconv_segundo || examData[key].partconv_segundo;
-                    if (remoteData[key].incluiContraste !== undefined) examData[key].incluiContraste = remoteData[key].incluiContraste;
-                    if (remoteData[key].hasEspecial !== undefined) examData[key].hasEspecial = remoteData[key].hasEspecial;
-                    if (remoteData[key].onlyEspecial !== undefined) examData[key].onlyEspecial = remoteData[key].onlyEspecial;
+        // ======================= EXAMES EDA / COLONO (baseado na planilha) =======================
+        const examDataEndoColono = {
+            'sonoendoscopia': { code: '88000630', name: 'PACOTE SONOENDOSCOPIA', category: 'endocolono', particular: { normal: 1206.81, especial: 1206.81 }, particular_segundo: { normal: 1206.81*0.8, especial: 1206.81*0.8 }, partconv: { normal: 1206.81*0.9, especial: 1206.81*0.9 }, partconv_segundo: { normal: (1206.81*0.9)*0.8, especial: (1206.81*0.9)*0.8 } },
+            'eda_hpylori': { code: '88800089', name: 'PACOTE ENDOSCOPIA DIGESTIVA ALTA COM OU SEM PESQUISA DE H PYLORI (TESTE UREASE, SEM ANATOMO)', category: 'endocolono', particular: { normal: 2064, especial: 2064 }, particular_segundo: { normal: 2064*0.8, especial: 2064*0.8 }, partconv: { normal: 2064*0.9, especial: 2064*0.9 }, partconv_segundo: { normal: (2064*0.9)*0.8, especial: (2064*0.9)*0.8 } },
+            'eda_biopsia': { code: '88800090', name: 'PACOTE ENDOSCOPIA DIGESTIVA ALTA + BIOPSIA (H PYLORI + ANATOMO)', category: 'endocolono', particular: { normal: 2314, especial: 2314 }, particular_segundo: { normal: 2314*0.8, especial: 2314*0.8 }, partconv: { normal: 2314*0.9, especial: 2314*0.9 }, partconv_segundo: { normal: (2314*0.9)*0.8, especial: (2314*0.9)*0.8 } },
+            'eda_multiplas_biopsias': { code: '88800091', name: 'PACOTE ENDOSCOPIA DIGESTIVA ALTA + MÚLTIPLAS BIÓPSIAS', category: 'endocolono', particular: { normal: 2833, especial: 2833 }, particular_segundo: { normal: 2833*0.8, especial: 2833*0.8 }, partconv: { normal: 2833*0.9, especial: 2833*0.9 }, partconv_segundo: { normal: (2833*0.9)*0.8, especial: (2833*0.9)*0.8 } },
+            'ecoendoscopia_sem_puncao': { code: '88800094', name: 'PACOTE ECOENDOSCOPIA ALTA OU BAIXA SEM PUNÇÃO', category: 'endocolono', particular: { normal: 2953, especial: 2953 }, particular_segundo: { normal: 2953*0.8, especial: 2953*0.8 }, partconv: { normal: 2953*0.9, especial: 2953*0.9 }, partconv_segundo: { normal: (2953*0.9)*0.8, especial: (2953*0.9)*0.8 } },
+            'sonda_nasoenteral': { code: '88800109', name: 'PACOTE ENDOSCOPIA + PASSAGEM DE SONDA NASOENTERAL', category: 'endocolono', particular: { normal: 3059, especial: 3059 }, particular_segundo: { normal: 3059*0.8, especial: 3059*0.8 }, partconv: { normal: 3059*0.9, especial: 3059*0.9 }, partconv_segundo: { normal: (3059*0.9)*0.8, especial: (3059*0.9)*0.8 } },
+            'corpo_estranho': { code: '88800100', name: 'PACOTE ENDOSCOPIA DIGESTIVA ALTA + RETIRADA DE CORPO ESTRANHO', category: 'endocolono', particular: { normal: 3915, especial: 3915 }, particular_segundo: { normal: 3915*0.8, especial: 3915*0.8 }, partconv: { normal: 3915*0.9, especial: 3915*0.9 }, partconv_segundo: { normal: (3915*0.9)*0.8, especial: (3915*0.9)*0.8 } },
+            'balao_intragastrico_retirada': { code: '40202771', name: 'RETIRADA BALÃO INTRAGÁSTRICO', category: 'endocolono', particular: { normal: 4000, especial: 4000 }, particular_segundo: { normal: 4000*0.8, especial: 4000*0.8 }, partconv: { normal: 4000*0.9, especial: 4000*0.9 }, partconv_segundo: { normal: (4000*0.9)*0.8, especial: (4000*0.9)*0.8 } },
+            'polipectomia': { code: '88800092', name: 'PACOTE ENDOSCOPIA + H PYLORI + BIÓPSIA + POLIPECTOMIA', category: 'endocolono', particular: { normal: 4828, especial: 4828 }, particular_segundo: { normal: 4828*0.8, especial: 4828*0.8 }, partconv: { normal: 4828*0.9, especial: 4828*0.9 }, partconv_segundo: { normal: (4828*0.9)*0.8, especial: (4828*0.9)*0.8 } },
+            'argonio': { code: '88800103', name: 'PACOTE ENDOSCOPIA DIGESTIVA ALTA + ARGÔNIO', category: 'endocolono', particular: { normal: 5938, especial: 5938 }, particular_segundo: { normal: 5938*0.8, especial: 5938*0.8 }, partconv: { normal: 5938*0.9, especial: 5938*0.9 }, partconv_segundo: { normal: (5938*0.9)*0.8, especial: (5938*0.9)*0.8 } },
+            'dilatacao_sonda': { code: '88800105', name: 'PACOTE ENDOSCOPIA DIGESTIVA ALTA + DILATAÇÃO COM SONDA', category: 'endocolono', particular: { normal: 6243, especial: 6243 }, particular_segundo: { normal: 6243*0.8, especial: 6243*0.8 }, partconv: { normal: 6243*0.9, especial: 6243*0.9 }, partconv_segundo: { normal: (6243*0.9)*0.8, especial: (6243*0.9)*0.8 } },
+            'dilatacao_balao': { code: '88800104', name: 'PACOTE ENDOSCOPIA DIGESTIVA ALTA + DILATAÇÃO COM BALÃO', category: 'endocolono', particular: { normal: 6416, especial: 6416 }, particular_segundo: { normal: 6416*0.8, especial: 6416*0.8 }, partconv: { normal: 6416*0.9, especial: 6416*0.9 }, partconv_segundo: { normal: (6416*0.9)*0.8, especial: (6416*0.9)*0.8 } },
+            'gastrostomia': { code: '88800110', name: 'PACOTE ENDOSCOPIA + GASTROSTOMIA', category: 'endocolono', particular: { normal: 7318, especial: 7318 }, particular_segundo: { normal: 7318*0.8, especial: 7318*0.8 }, partconv: { normal: 7318*0.9, especial: 7318*0.9 }, partconv_segundo: { normal: (7318*0.9)*0.8, especial: (7318*0.9)*0.8 } },
+            'ecoendoscopia_com_puncao': { code: '88800095', name: 'PACOTE ECOENDOSCOPIA ALTA OU BAIXA COM PUNÇÃO', category: 'endocolono', particular: { normal: 7609, especial: 7609 }, particular_segundo: { normal: 7609*0.8, especial: 7609*0.8 }, partconv: { normal: 7609*0.9, especial: 7609*0.9 }, partconv_segundo: { normal: (7609*0.9)*0.8, especial: (7609*0.9)*0.8 } },
+            'hemostasia_mecanica': { code: '88800102', name: 'PACOTE ENDOSCOPIA + HEMOSTASIA MECÂNICA DO ESÔFAGO', category: 'endocolono', particular: { normal: 7762, especial: 7762 }, particular_segundo: { normal: 7762*0.8, especial: 7762*0.8 }, partconv: { normal: 7762*0.9, especial: 7762*0.9 }, partconv_segundo: { normal: (7762*0.9)*0.8, especial: (7762*0.9)*0.8 } },
+            'mucosectomia': { code: '88800093', name: 'PACOTE ENDOSCOPIA + H PYLORI + BIÓPSIA + MUCOSECTOMIA', category: 'endocolono', particular: { normal: 8171, especial: 8171 }, particular_segundo: { normal: 8171*0.8, especial: 8171*0.8 }, partconv: { normal: 8171*0.9, especial: 8171*0.9 }, partconv_segundo: { normal: (8171*0.9)*0.8, especial: (8171*0.9)*0.8 } },
+            'colonoscopia_sem_biopsia': { code: '88800096', name: 'PACOTE COLONOSCOPIA OU RETOSSIGMOIDOSCOPIA FLEXÍVEL', category: 'endocolono', particular: { normal: 2471, especial: 2471 }, particular_segundo: { normal: 2471*0.8, especial: 2471*0.8 }, partconv: { normal: 2471*0.9, especial: 2471*0.9 }, partconv_segundo: { normal: (2471*0.9)*0.8, especial: (2471*0.9)*0.8 } },
+            'colonoscopia_biopsia': { code: '88800097', name: 'PACOTE COLONOSCOPIA + BIÓPSIA (ANATOMO)', category: 'endocolono', particular: { normal: 3074, especial: 3074 }, particular_segundo: { normal: 3074*0.8, especial: 3074*0.8 }, partconv: { normal: 3074*0.9, especial: 3074*0.9 }, partconv_segundo: { normal: (3074*0.9)*0.8, especial: (3074*0.9)*0.8 } },
+            'colonoscopia_multiplas_biopsias': { code: '88800098', name: 'PACOTE COLONOSCOPIA + MÚLTIPLAS BIÓPSIAS', category: 'endocolono', particular: { normal: 3592, especial: 3592 }, particular_segundo: { normal: 3592*0.8, especial: 3592*0.8 }, partconv: { normal: 3592*0.9, especial: 3592*0.9 }, partconv_segundo: { normal: (3592*0.9)*0.8, especial: (3592*0.9)*0.8 } },
+            'colonoscopia_dilatacao_balao': { code: '88800108', name: 'PACOTE COLONOSCOPIA + DILATAÇÃO COM BALÃO', category: 'endocolono', particular: { normal: 4724, especial: 4724 }, particular_segundo: { normal: 4724*0.8, especial: 4724*0.8 }, partconv: { normal: 4724*0.9, especial: 4724*0.9 }, partconv_segundo: { normal: (4724*0.9)*0.8, especial: (4724*0.9)*0.8 } },
+            'colocacao_balao_intragastrico': { code: '40202658', name: 'COLOCAÇÃO BALÃO INTRAGÁSTRICO', category: 'endocolono', particular: { normal: 6000, especial: 6000 }, particular_segundo: { normal: 6000*0.8, especial: 6000*0.8 }, partconv: { normal: 6000*0.9, especial: 6000*0.9 }, partconv_segundo: { normal: (6000*0.9)*0.8, especial: (6000*0.9)*0.8 } },
+            'colonoscopia_polipectomia': { code: '88800099', name: 'PACOTE COLONOSCOPIA + BIÓPSIA + POLIPECTOMIA', category: 'endocolono', particular: { normal: 6161, especial: 6161 }, particular_segundo: { normal: 6161*0.8, especial: 6161*0.8 }, partconv: { normal: 6161*0.9, especial: 6161*0.9 }, partconv_segundo: { normal: (6161*0.9)*0.8, especial: (6161*0.9)*0.8 } },
+            'colonoscopia_argonio': { code: '88800107', name: 'PACOTE COLONOSCOPIA + APLICAÇÃO DE ARGÔNIO', category: 'endocolono', particular: { normal: 6409, especial: 6409 }, particular_segundo: { normal: 6409*0.8, especial: 6409*0.8 }, partconv: { normal: 6409*0.9, especial: 6409*0.9 }, partconv_segundo: { normal: (6409*0.9)*0.8, especial: (6409*0.9)*0.8 } },
+            'colonoscopia_mucosectomia': { code: '88800113', name: 'PACOTE COLONOSCOPIA + BIÓPSIA + MUCOSECTOMIA', category: 'endocolono', particular: { normal: 7448, especial: 7448 }, particular_segundo: { normal: 7448*0.8, especial: 7448*0.8 }, partconv: { normal: 7448*0.9, especial: 7448*0.9 }, partconv_segundo: { normal: (7448*0.9)*0.8, especial: (7448*0.9)*0.8 } },
+            'colonoscopia_hemostasia': { code: '88800106', name: 'PACOTE COLONOSCOPIA + HEMOSTASIA DE CÓLON', category: 'endocolono', particular: { normal: 8197, especial: 8197 }, particular_segundo: { normal: 8197*0.8, especial: 8197*0.8 }, partconv: { normal: 8197*0.9, especial: 8197*0.9 }, partconv_segundo: { normal: (8197*0.9)*0.8, especial: (8197*0.9)*0.8 } },
+            'colonoscopia_completa': { code: '88800112', name: 'PACOTE COLONOSCOPIA + BIÓPSIA + POLIPECTOMIA + HEMOSTASIA', category: 'endocolono', particular: { normal: 12010, especial: 12010 }, particular_segundo: { normal: 12010*0.8, especial: 12010*0.8 }, partconv: { normal: 12010*0.9, especial: 12010*0.9 }, partconv_segundo: { normal: (12010*0.9)*0.8, especial: (12010*0.9)*0.8 } },
+            'colonoscopia_mucosectomia_complexa': { code: '88800111', name: 'PACOTE COLONOSCOPIA + BIÓPSIA + POLIPECTOMIA + MUCOSECTOMIA', category: 'endocolono', particular: { normal: 12112, especial: 12112 }, particular_segundo: { normal: 12112*0.8, especial: 12112*0.8 }, partconv: { normal: 12112*0.9, especial: 12112*0.9 }, partconv_segundo: { normal: (12112*0.9)*0.8, especial: (12112*0.9)*0.8 } }
+        };
+
+        // Mescla todos os exames em um único objeto para acesso unificado
+        let allExams = { ...examDataRMTC, ...examDataEndoColono };
+        
+        // Ordem personalizada para os favoritos da categoria EDA/COLONO (os 4 primeiros)
+        const endoColonoPriorityOrder = [
+            'colonoscopia_sem_biopsia',   // Pacote Colonoscopia ou Retossigmoidoscopia
+            'colonoscopia_biopsia',       // + 01 Biópsia
+            'eda_hpylori',                // Endoscopia Digestiva Alta com ou sem H. Pylori
+            'eda_biopsia'                 // + 01 Biópsia
+        ];
+        
+        // Função que retorna as chaves da categoria 'endocolono' na ordem desejada
+        function getOrderedEndoColonoKeys() {
+            const allKeys = Object.keys(allExams).filter(key => allExams[key].category === 'endocolono');
+            const priorityKeys = [];
+            const otherKeys = [];
+            for (let key of allKeys) {
+                if (endoColonoPriorityOrder.includes(key)) {
+                    priorityKeys.push(key);
+                } else {
+                    otherKeys.push(key);
                 }
             }
-            console.log('Preços remotos carregados com sucesso');
+            // Ordena os priorityKeys conforme a ordem definida
+            priorityKeys.sort((a,b) => endoColonoPriorityOrder.indexOf(a) - endoColonoPriorityOrder.indexOf(b));
+            // Ordena os outros alfabeticamente pelo nome (ou pode manter ordem original)
+            otherKeys.sort((a,b) => allExams[a].name.localeCompare(allExams[b].name));
+            return [...priorityKeys, ...otherKeys];
+        }
+        
+        // Estado dos exames (quantidades)
+        let state = { origem: 'eletivo', tipo: 'particular', periodo: 'normal', exames: {}, contraste: false, anestesia: false, pendingAdd: null };
+        // Inicializa quantidades para todos os exames
+        Object.keys(allExams).forEach(k => state.exames[k] = 0);
+
+        // Abreviações para TASY (adicionar os novos)
+        const abreviacoes = {
+            // RM/TC
+            'RM - Angioressonância (pacote) COM CONTRASTE':'RM Angio','RM - Ressonância (Pacote AVC - crânio + angio) COM CONTRASTE':'RM AVC','RM - Ressonância Magnética (pacote)':'RM','RM - Ressonância Magnética Com Contraste (pacote)':'RM C/Contr','TC - Angiotomografia (pacote) COM CONTRASTE':'TC Angio','TC - Angiotomografia de coronárias (pacote) COM CONTRASTE':'TC Cor','TC - Tomografia (Pacote AVC - crânio + angio) COM CONTRASTE':'TC AVC','TC - Tomografia abdômen total (pacote)':'TC Abd','TC - Tomografia computadorizada (pacote)':'TC',
+            // EDA/Colono (abreviações automáticas curtas)
+            'PACOTE SONOENDOSCOPIA':'SonoEndo','PACOTE ENDOSCOPIA DIGESTIVA ALTA COM OU SEM PESQUISA DE H PYLORI (TESTE UREASE, SEM ANATOMO)':'EDA Hpylori','PACOTE ENDOSCOPIA DIGESTIVA ALTA + BIOPSIA (H PYLORI + ANATOMO)':'EDA Biópsia','PACOTE ENDOSCOPIA DIGESTIVA ALTA + MÚLTIPLAS BIÓPSIAS':'EDA MultBiópsia','PACOTE ECOENDOSCOPIA ALTA OU BAIXA SEM PUNÇÃO':'EcoEndo s/Punção','PACOTE ENDOSCOPIA + PASSAGEM DE SONDA NASOENTERAL':'Sonda Naso','PACOTE ENDOSCOPIA DIGESTIVA ALTA + RETIRADA DE CORPO ESTRANHO':'Corpo Estranho','RETIRADA BALÃO INTRAGÁSTRICO':'Retirada Balão','PACOTE ENDOSCOPIA + H PYLORI + BIÓPSIA + POLIPECTOMIA':'Polipectomia','PACOTE ENDOSCOPIA DIGESTIVA ALTA + ARGÔNIO':'Argonio','PACOTE ENDOSCOPIA DIGESTIVA ALTA + DILATAÇÃO COM SONDA':'Dilatação Sonda','PACOTE ENDOSCOPIA DIGESTIVA ALTA + DILATAÇÃO COM BALÃO':'Dilatação Balão','PACOTE ENDOSCOPIA + GASTROSTOMIA':'Gastrostomia','PACOTE ECOENDOSCOPIA ALTA OU BAIXA COM PUNÇÃO':'EcoEndo c/Punção','PACOTE ENDOSCOPIA + HEMOSTASIA MECÂNICA DO ESÔFAGO':'Hemostasia Mec','PACOTE ENDOSCOPIA + H PYLORI + BIÓPSIA + MUCOSECTOMIA':'Mucosectomia','PACOTE COLONOSCOPIA OU RETOSSIGMOIDOSCOPIA FLEXÍVEL':'Colonoscopia','PACOTE COLONOSCOPIA + BIÓPSIA (ANATOMO)':'Colono Biópsia','PACOTE COLONOSCOPIA + MÚLTIPLAS BIÓPSIAS':'Colono MultBiópsia','PACOTE COLONOSCOPIA + DILATAÇÃO COM BALÃO':'Colono Dilatação','COLOCAÇÃO BALÃO INTRAGÁSTRICO':'Coloc Balão','PACOTE COLONOSCOPIA + BIÓPSIA + POLIPECTOMIA':'Colono Polipect','PACOTE COLONOSCOPIA + APLICAÇÃO DE ARGÔNIO':'Colono Argônio','PACOTE COLONOSCOPIA + BIÓPSIA + MUCOSECTOMIA':'Colono Mucosect','PACOTE COLONOSCOPIA + HEMOSTASIA DE CÓLON':'Colono Hemostasia','PACOTE COLONOSCOPIA + BIÓPSIA + POLIPECTOMIA + HEMOSTASIA':'Colono Completo','PACOTE COLONOSCOPIA + BIÓPSIA + POLIPECTOMIA + MUCOSECTOMIA':'Colono MucoCompl',
+            'Contraste':'Contr','Anestesia / Sedação':'Sed'
+        };
+
+        function isAvailable(key) { 
+            let ex = allExams[key]; 
+            if (!ex) return false;
+            if (state.periodo === 'normal') { 
+                if (ex.onlyEspecial) return false; 
+                return state.tipo === 'particular' ? ex.particular.normal !== null : ex.partconv.normal !== null; 
+            } 
+            return true; 
+        }
+        function getValor(key, segundo) { 
+            let ex = allExams[key], t = state.tipo, p = state.periodo; 
+            let v = segundo ? (t==='particular'?ex.particular_segundo[p]:ex.partconv_segundo[p]) : (t==='particular'?ex.particular[p]:ex.partconv[p]); 
+            if(v===null && p==='especial') v = segundo ? (t==='particular'?ex.particular_segundo.normal:ex.partconv_segundo.normal) : (t==='particular'?ex.particular.normal:ex.partconv.normal); 
+            return v; 
+        }
+        function contarExames() { return Object.values(state.exames).reduce((a,b)=>a+b,0); }
+        function hasEspecial(key) { return allExams[key].hasEspecial && state.periodo === 'especial'; }
+
+        // Função para atualizar a lista de exames com base na categoria selecionada e ordem personalizada
+        function renderExames() {
+            const container = document.getElementById('examList');
+            let html = '';
+            let keysToRender = [];
+            if (currentCategory === 'rmtc') {
+                // Para TC/RM, mantém a ordem original (como está no objeto, mas podemos ordenar por nome)
+                keysToRender = Object.keys(allExams).filter(key => allExams[key].category === 'rmtc');
+                keysToRender.sort((a,b) => allExams[a].name.localeCompare(allExams[b].name));
+            } else {
+                // Para EDA/COLONO, usa a ordem personalizada com favoritos no topo
+                keysToRender = getOrderedEndoColonoKeys();
+            }
+            
+            for (let key of keysToRender) {
+                let ex = allExams[key];
+                let disp = isAvailable(key);
+                let esp = hasEspecial(key);
+                let ipc = (state.tipo==='partconv' && state.periodo==='especial' && ex.igualParticular);
+                let v100 = '', v20 = '';
+                if (disp) {
+                    let a = getValor(key, false);
+                    let b = getValor(key, true);
+                    v100 = `100%: R$ ${a.toLocaleString('pt-BR', {minimumFractionDigits:2})}`;
+                    v20 = `20%: R$ ${b.toLocaleString('pt-BR', {minimumFractionDigits:2})}`;
+                }
+                let tag = esp ? '<span class="exam-tag">Dif</span>' : (ipc ? '<span class="exam-tag">=Part</span>' : '');
+                let indispMsg = !disp ? '<div style="font-size:0.65rem;">Só horário dif.</div>' : '';
+                html += `<div class="exam-item ${!disp?'disabled':''}" data-key="${key}" data-search="${ex.name.toLowerCase()} ${ex.code||''}">
+                            <div class="exam-info">
+                                <div class="exam-code">${ex.code || 'S/Código'}</div>
+                                <div class="exam-name">${ex.name}${tag}</div>
+                                ${disp ? `<div class="exam-values">${v100} | ${v20}</div>` : indispMsg}
+                            </div>
+                            <div class="exam-controls">
+                                <button class="qty-btn" onclick="handleQtyClick('${key}', -1)" ${!disp?'disabled':''}>−</button>
+                                <span class="qty-display" id="q-${key}">${state.exames[key]}</span>
+                                <button class="qty-btn" onclick="handleQtyClick('${key}', 1)" ${!disp?'disabled':''}>+</button>
+                            </div>
+                        </div>`;
+            }
+            container.innerHTML = html;
+        }
+
+        window.handleQtyClick = function(key, delta) { 
+            if(!isAvailable(key)) return; 
+            let atual = state.exames[key], novo = atual + delta, total = contarExames(); 
+            if(delta > 0 && novo >= 2 && atual >= 1) { 
+                state.pendingAdd = { key, delta, novo }; 
+                document.getElementById('confirmText').innerHTML = `Você está adicionando <strong>${novo}x ${allExams[key].name}</strong>.<br><br>Lembre-se: desconto de 20% a partir do 2º pacote.`; 
+                document.getElementById('confirmModal').classList.add('show'); 
+                return; 
+            } 
+            if(delta > 0 && total >= 9) { 
+                document.getElementById('alertLimite').classList.add('show'); 
+                setTimeout(()=>document.getElementById('alertLimite').classList.remove('show'),2000); 
+                return; 
+            } 
+            if(novo>=0){ 
+                state.exames[key]=novo; 
+                document.getElementById(`q-${key}`).textContent=novo; 
+                checkContraste(); 
+                calcular(); 
+            } 
+        };
+        window.confirmAdd = function() { 
+            if(state.pendingAdd){ 
+                let {key, delta, novo}=state.pendingAdd; 
+                let currentTotal = contarExames(); 
+                if(currentTotal + delta > 9){ 
+                    document.getElementById('alertLimite').classList.add('show'); 
+                    setTimeout(()=>document.getElementById('alertLimite').classList.remove('show'),2000); 
+                    state.pendingAdd=null; 
+                    document.getElementById('confirmModal').classList.remove('show'); 
+                    return; 
+                } 
+                state.exames[key]=novo; 
+                document.getElementById(`q-${key}`).textContent=novo; 
+                checkContraste(); 
+                calcular(); 
+                state.pendingAdd=null; 
+            } 
+            document.getElementById('confirmModal').classList.remove('show'); 
+        };
+        window.cancelAdd = function() { state.pendingAdd=null; document.getElementById('confirmModal').classList.remove('show'); };
+        
+        function checkContraste() { 
+            let temContrasteIncluso = Object.keys(allExams).some(key => allExams[key].incluiContraste && state.exames[key] > 0);
+            let al = document.getElementById('alertContraste'), cc = document.getElementById('cardContraste'), ch = document.getElementById('chkContraste');
+            if(temContrasteIncluso){
+                al.classList.add('show');
+                cc.classList.add('disabled');
+                if(state.contraste){
+                    state.contraste=false;
+                    ch.checked=false;
+                    cc.classList.remove('selected');
+                }
+            } else {
+                al.classList.remove('show');
+                cc.classList.remove('disabled');
+            }
+        }
+        
+        function updateProntoSocorro() {
+            const isPS = state.origem === 'prontosocorro';
+            const radioPartConv = document.getElementById('radioPartConv');
+            const labelEspecial = document.getElementById('labelEspecial');
+            if (isPS) {
+                radioPartConv.classList.add('disabled');
+                labelEspecial.classList.add('disabled');
+                if (state.tipo === 'partconv') {
+                    document.querySelector('input[name="tipo"][value="particular"]').checked = true;
+                    state.tipo = 'particular';
+                }
+                if (state.periodo === 'especial') {
+                    document.querySelector('input[name="periodo"][value="normal"]').checked = true;
+                    state.periodo = 'normal';
+                }
+            } else {
+                radioPartConv.classList.remove('disabled');
+                labelEspecial.classList.remove('disabled');
+            }
+        }
+        
+        function updateState() { 
+            state.origem = document.querySelector('input[name="origem"]:checked').value; 
+            state.tipo = document.querySelector('input[name="tipo"]:checked').value; 
+            state.periodo = document.querySelector('input[name="periodo"]:checked').value; 
+            updateProntoSocorro();
+            let alPS = document.getElementById('alertPS'); 
+            alPS.classList.toggle('show', state.origem === 'prontosocorro');
+            document.getElementById('alertEspecial').classList.toggle('show', state.periodo === 'especial'); 
+            renderExames(); 
+            checkContraste(); 
+            calcular(); 
+        }
+        
+        window.toggleExtra = function(t){ 
+            if(t==='contraste'){ 
+                let temContrasteIncluso = Object.keys(allExams).some(key => allExams[key].incluiContraste && state.exames[key] > 0); 
+                if(temContrasteIncluso){ 
+                    document.getElementById('chkContraste').checked=false; 
+                    return; 
+                } 
+                state.contraste=document.getElementById('chkContraste').checked; 
+                document.getElementById('cardContraste').classList.toggle('selected', state.contraste); 
+            } else { 
+                state.anestesia=document.getElementById('chkAnestesia').checked; 
+                document.getElementById('cardAnestesia').classList.toggle('selected', state.anestesia); 
+            } 
+            calcular(); 
+        };
+        
+        window.filterExames = function(){ 
+            let termo=document.getElementById('searchInput').value.toLowerCase(); 
+            document.querySelectorAll('.exam-item').forEach(el=>{ 
+                let searchAttr = el.getAttribute('data-search') || '';
+                el.classList.toggle('hidden', !searchAttr.includes(termo)); 
+            }); 
+        };
+        
+        function abreviar(nome){ 
+            let limpo = nome.replace(/\(pacote\)/gi,'').replace(/COM CONTRASTE/gi,'').trim(); 
+            return abreviacoes[limpo] || (limpo.length>12?limpo.substring(0,12):limpo); 
+        }
+        
+        function calcular(){ 
+            let itens=[]; 
+            let total=0; 
+            Object.entries(state.exames).forEach(([key,qtd])=>{ 
+                if(qtd>0 && isAvailable(key)){ 
+                    let ex=allExams[key]; 
+                    let v100=getValor(key,false), v20=getValor(key,true); 
+                    let nome=ex.name+(hasEspecial(key)?' (Dif)':''); 
+                    for(let i=0;i<qtd;i++) itens.push({nome, abrev:abreviar(nome), v100, v20}); 
+                } 
+            }); 
+            itens.sort((a,b)=>b.v100-a.v100); 
+            let detalhe=[]; 
+            itens.forEach((it,idx)=>{ 
+                if(idx===0){ total+=it.v100; detalhe.push({nome:it.nome,abrev:it.abrev,perc:'100%',valor:it.v100}); } 
+                else { total+=it.v20; detalhe.push({nome:it.nome,abrev:it.abrev,perc:'20%',valor:it.v20}); } 
+            }); 
+            let temContrasteIncluso = Object.keys(allExams).some(key => allExams[key].incluiContraste && state.exames[key] > 0); 
+            if(state.contraste && !temContrasteIncluso){ total+=360; detalhe.push({nome:'Contraste',abrev:'Contr',perc:'100%',valor:360}); } 
+            if(state.anestesia){ total+=1073; detalhe.push({nome:'Anestesia / Sedação',abrev:'Sed',perc:'100%',valor:1073}); } 
+            document.getElementById('totalValue').textContent='R$ '+total.toLocaleString('pt-BR',{minimumFractionDigits:2}); 
+            let txt=detalhe.length? detalhe.map(d=>`${d.nome.length>30?d.nome.substring(0,30)+'...':d.nome} (${d.perc}) ${'.'.repeat(35-(d.nome.length>30?30:d.nome.length)-d.perc.length)} R$ ${d.valor.toLocaleString('pt-BR',{minimumFractionDigits:2})}`).join('\n')+`\n${'='.repeat(50)}\nTOTAL${'.'.repeat(35)} R$ ${total.toLocaleString('pt-BR',{minimumFractionDigits:2})}` : 'Selecione os exames...'; 
+            document.getElementById('detailBox').textContent=txt; 
+            let tasy=detalhe.length? detalhe.map((d,i)=>`${d.abrev}(${d.perc}) R$${Math.round(d.valor)}`).join('; ')+`; Tot:R$${Math.round(total)}` : ''; 
+            let cc=document.getElementById('charCount'); 
+            if(tasy.length>250){ cc.textContent=`⚠️ ${tasy.length}/250 (Excedido)`; cc.className='char-count error'; tasy=tasy.substring(0,247)+'...'; } 
+            else if(tasy.length>200){ cc.textContent=`⚠️ ${tasy.length}/250 (Próximo)`; cc.className='char-count warning'; } 
+            else { cc.textContent=`${tasy.length}/250 chars`; cc.className='char-count'; } 
+            window._total=total; window._tasy=tasy; 
+            let c=contarExames(); 
+            document.getElementById('limitCounter').textContent=`${c}/9`; 
+            document.getElementById('limitCounter').className=`limit-counter ${c>=9?'error':c>=7?'warning':''}`; 
+        }
+        
+        window.copyValor = function(){ navigator.clipboard.writeText((window._total||0).toLocaleString('pt-BR',{minimumFractionDigits:2})).then(()=>alert('Valor copiado!')); };
+        
+        function buildPaymentOptionsHTML(total) {
+            let html = `<h4>💳 Formas de Pagamento</h4>`;
+            html += `<p><strong>À vista (Pix / Dinheiro / Débito):</strong> R$ ${total.toLocaleString('pt-BR', {minimumFractionDigits:2})}</p>`;
+            html += `<p><strong>Cartão de Crédito (sem juros):</strong></p><div class="installments-list">`;
+            const minParcel = 150;
+            let maxParcel = Math.min(6, Math.floor(total / minParcel));
+            if (maxParcel < 1) maxParcel = 1;
+            for (let i = 1; i <= maxParcel; i++) {
+                let valorParcela = total / i;
+                html += `<div class="installment-badge">${i}x de R$ ${valorParcela.toLocaleString('pt-BR', {minimumFractionDigits:2})}</div>`;
+            }
+            html += `</div><small>*Parcelamento mínimo de R$ 150 por parcela. Máximo 6x.</small>`;
+            return html;
+        }
+        
+        function buildTasySummaryHTML(){ 
+            let items=[]; 
+            let totalGeral=0; 
+            Object.entries(state.exames).forEach(([key,qtd])=>{ 
+                if(qtd>0 && isAvailable(key)){ 
+                    let ex=allExams[key]; 
+                    let v100=getValor(key,false), v20=getValor(key,true); 
+                    let exTotal=0; 
+                    for(let i=0;i<qtd;i++){ if(i===0) exTotal+=v100; else exTotal+=v20; } 
+                    totalGeral+=exTotal; 
+                    items.push({name:ex.name+(hasEspecial(key)?' (Dif)':''), quantity:qtd, unitFirst:v100, unitOther:v20, total:exTotal}); 
+                } 
+            }); 
+            let temContrasteIncluso = Object.keys(allExams).some(key => allExams[key].incluiContraste && state.exames[key] > 0); 
+            if(state.contraste && !temContrasteIncluso){ items.push({name:'Contraste', quantity:1, unitFirst:360, unitOther:360, total:360}); totalGeral+=360; } 
+            if(state.anestesia){ items.push({name:'Sedação', quantity:1, unitFirst:1073, unitOther:1073, total:1073}); totalGeral+=1073; } 
+            let html='<table class="tasy-summary-table"><thead><tr><th>Exame</th><th>Qtd</th><th>Valor unitário (1º)</th><th>Total</th></tr></thead><tbody>'; 
+            items.forEach(it=>{ html+=`<tr><td>${it.name}</td><td>${it.quantity}x</td><td>R$ ${it.unitFirst.toLocaleString('pt-BR',{minFractionDigits:2})}${it.quantity>1?` (demais: R$ ${it.unitOther.toLocaleString('pt-BR',{minFractionDigits:2})})`:''}</td><td><strong>R$ ${it.total.toLocaleString('pt-BR',{minFractionDigits:2})}</strong></td></tr>`; }); 
+            html+=`</tbody></table><div class="tasy-grandtotal">💰 TOTAL GERAL: R$ ${totalGeral.toLocaleString('pt-BR',{minFractionDigits:2})}</div>`; 
+            return {html, totalGeral}; 
+        }
+        
+        window.openTasyConfirm = function(){ 
+            if(!window._tasy || window._tasy.length===0){ alert('Nenhum exame selecionado para copiar.'); return; } 
+            let {html, totalGeral} = buildTasySummaryHTML();
+            document.getElementById('tasySummaryContent').innerHTML = html;
+            let paymentHTML = buildPaymentOptionsHTML(totalGeral);
+            document.getElementById('paymentOptionsContainer').innerHTML = paymentHTML;
+            document.getElementById('tasyConfirmModal').classList.add('show'); 
+        };
+        window.closeTasyModal = function(){ document.getElementById('tasyConfirmModal').classList.remove('show'); };
+        window.confirmCopyTasy = function(){ if(window._tasy){ navigator.clipboard.writeText(window._tasy).then(()=>{ alert('✅ Texto TASY copiado com sucesso!'); closeTasyModal(); }).catch(()=>alert('Erro ao copiar')); } else { alert('Nada para copiar.'); closeTasyModal(); } };
+        
+        window.gerarPDF = function() { 
+            const {jsPDF}=window.jspdf; 
+            let doc=new jsPDF(); 
+            let y=15, w=doc.internal.pageSize.getWidth(); 
+            doc.setFillColor(0,102,204); doc.rect(0,0,w,40,'F'); 
+            doc.setTextColor(255,255,255); doc.setFontSize(18); doc.text('ORÇAMENTO CDI',w/2,25,{align:'center'}); 
+            doc.setFontSize(9); doc.text(new Date().toLocaleString('pt-BR'),w/2,33,{align:'center'}); 
+            y=50; doc.setTextColor(0,0,0); doc.setFontSize(10); 
+            doc.text(`Origem: ${state.origem==='eletivo'?'Eletivo':'Pronto-Socorro'}`,15,y); y+=6; 
+            doc.text(`Tipo: ${state.tipo==='particular'?'Particular':'Part. Convênio'}`,15,y); y+=6; 
+            doc.text(`Período: ${state.periodo==='normal'?'Horário Normal':'Dom/Fer/22-6h'}`,15,y); y+=10; 
+            let its=[]; let tot=0; 
+            Object.entries(state.exames).forEach(([k,q])=>{ if(q>0 && isAvailable(k)){ let ex=allExams[k]; let v1=getValor(k,false), v2=getValor(k,true); for(let i=0;i<q;i++){ if(its.length===0){ its.push({n:ex.name,v:v1,p:'100%'}); tot+=v1; } else { its.push({n:ex.name,v:v2,p:'20%'}); tot+=v2; } } } }); 
+            let temContrasteInclusoPDF = Object.keys(allExams).some(key => allExams[key].incluiContraste && state.exames[key] > 0); 
+            if(state.contraste && !temContrasteInclusoPDF){ its.push({n:'Contraste',v:360,p:'100%'}); tot+=360; } 
+            if(state.anestesia){ its.push({n:'Anestesia / Sedação',v:1073,p:'100%'}); tot+=1073; } 
+            if(its.length){ doc.setFontSize(11); doc.setFont(undefined,'bold'); doc.text('ITENS',15,y); y+=8; doc.setFont(undefined,'normal'); its.forEach(it=>{ if(y>280){ doc.addPage(); y=20; } let nm=it.n.length>50?it.n.substring(0,50)+'...':it.n; doc.text(nm,15,y); doc.text(it.p,w-15-40,y); doc.text('R$ '+it.v.toLocaleString('pt-BR',{minFractionDigits:2}),w-15,y,{align:'right'}); y+=6; }); y+=5; doc.setDrawColor(0,102,204); doc.line(15,y,w-15,y); y+=8; doc.setFont(undefined,'bold'); doc.setFontSize(13); doc.text('TOTAL:',15,y); doc.text('R$ '+tot.toLocaleString('pt-BR',{minFractionDigits:2}),w-15,y,{align:'right'}); } 
+            doc.save(`orcamento_cdi_${Date.now()}.pdf`); 
+        };
+        
+        window.resetAll = function(){ 
+            state.exames={}; 
+            Object.keys(allExams).forEach(k=>state.exames[k]=0); 
+            state.contraste=false; state.anestesia=false; 
+            document.getElementById('chkContraste').checked=false; 
+            document.getElementById('chkAnestesia').checked=false; 
+            document.getElementById('cardContraste').classList.remove('selected'); 
+            document.getElementById('cardAnestesia').classList.remove('selected'); 
+            renderExames(); 
+            checkContraste(); 
+            calcular(); 
+        };
+        
+        // Função para mudar categoria e re-renderizar
+        window.setCategory = function(cat) {
+            currentCategory = cat;
+            // Atualiza estilo dos botões
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.getAttribute('data-category') === cat) btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
             renderExames();
-            calcular();
-        } catch(e) {
-            console.warn('Falha ao carregar precos.json, usando fallback:', e);
-            // se examData ainda estiver vazio, carrega fallback completo
-            if (Object.keys(examData).length === 0) {
-                examData = JSON.parse(JSON.stringify(fullFallback));
-                // inicializa exames no state
-                Object.keys(examData).forEach(k => { if (state.exames[k] === undefined) state.exames[k] = 0; });
-                renderExames();
-                calcular();
-            }
-        }
-    }
-    
-    window.reloadRemotePrices = function() {
-        loadRemotePrices().then(() => {
-            alert('Preços recarregados do servidor!');
-            if (document.getElementById('adminPanel').classList.contains('show')) {
-                closeAdminPanel();
-            }
-        });
-    };
-    
-    // Admin local (edição e salvamento)
-    window.openAdminPanel = function(){ 
-        let grid=document.getElementById('adminGrid'); 
-        grid.innerHTML=''; 
-        Object.entries(examData).forEach(([key,ex])=>{ 
-            let div=document.createElement('div'); 
-            div.className='admin-item'; 
-            div.innerHTML=`<div class="admin-item-name">${ex.name} (${ex.category==='rmtc'?'TC/RM':'EDA/Colono'})</div>
-                <div class="admin-inputs">
-                    <div class="admin-input-group"><label>Part Normal(100%)</label><input type="number" class="admin-input" id="ad-${key}-pn" value="${ex.particular.normal||''}" step="0.01"></div>
-                    <div class="admin-input-group"><label>Part Normal(20%)</label><input type="number" class="admin-input" id="ad-${key}-psn" value="${ex.particular_segundo.normal||''}" step="0.01"></div>
-                    <div class="admin-input-group"><label>Part Dif(100%)</label><input type="number" class="admin-input" id="ad-${key}-pe" value="${ex.particular.especial||''}" step="0.01"></div>
-                    <div class="admin-input-group"><label>Part Dif(20%)</label><input type="number" class="admin-input" id="ad-${key}-pse" value="${ex.particular_segundo.especial||''}" step="0.01"></div>
-                    <div class="admin-input-group"><label>P.Conv Normal(100%)</label><input type="number" class="admin-input" id="ad-${key}-cn" value="${ex.partconv.normal||''}" step="0.01"></div>
-                    <div class="admin-input-group"><label>P.Conv Normal(20%)</label><input type="number" class="admin-input" id="ad-${key}-csn" value="${ex.partconv_segundo.normal||''}" step="0.01"></div>
-                    <div class="admin-input-group"><label>P.Conv Dif(100%)</label><input type="number" class="admin-input" id="ad-${key}-ce" value="${ex.partconv.especial||''}" step="0.01"></div>
-                    <div class="admin-input-group"><label>P.Conv Dif(20%)</label><input type="number" class="admin-input" id="ad-${key}-cse" value="${ex.partconv_segundo.especial||''}" step="0.01"></div>
-                </div>`; 
-            grid.appendChild(div); 
-        }); 
-        document.getElementById('adminPanel').classList.add('show'); 
-    };
-    window.saveAdminValues = function(){ 
-        Object.keys(examData).forEach(key=>{ 
-            examData[key].particular.normal = parseFloat(document.getElementById(`ad-${key}-pn`).value)||null; 
-            examData[key].particular_segundo.normal = parseFloat(document.getElementById(`ad-${key}-psn`).value)||null; 
-            examData[key].particular.especial = parseFloat(document.getElementById(`ad-${key}-pe`).value)||null; 
-            examData[key].particular_segundo.especial = parseFloat(document.getElementById(`ad-${key}-pse`).value)||null; 
-            examData[key].partconv.normal = parseFloat(document.getElementById(`ad-${key}-cn`).value)||null; 
-            examData[key].partconv_segundo.normal = parseFloat(document.getElementById(`ad-${key}-csn`).value)||null; 
-            examData[key].partconv.especial = parseFloat(document.getElementById(`ad-${key}-ce`).value)||null; 
-            examData[key].partconv_segundo.especial = parseFloat(document.getElementById(`ad-${key}-cse`).value)||null; 
-        }); 
-        alert('Valores atualizados localmente! Para persistir, atualize o arquivo precos.json no servidor.'); 
-        closeAdminPanel(); 
-        renderExames(); 
-        calcular(); 
-    };
-    window.closeAdminPanel = function(){ document.getElementById('adminPanel').classList.remove('show'); };
-    window.openPasswordModal = function(){ document.getElementById('passwordOverlay').classList.add('show'); document.getElementById('passwordInput').value=''; document.getElementById('passwordError').style.display='none'; };
-    window.closePasswordModal = function(){ document.getElementById('passwordOverlay').classList.remove('show'); };
-    window.checkPassword = function(){ if(document.getElementById('passwordInput').value===ADMIN_PASSWORD){ closePasswordModal(); openAdminPanel(); } else { document.getElementById('passwordError').style.display='block'; } };
-    window.toggleTheme = function(){ let html=document.documentElement, icon=document.getElementById('themeIcon'); if(html.getAttribute('data-theme')==='dark'){ html.removeAttribute('data-theme'); icon.textContent='🌙'; localStorage.setItem('theme','light'); } else { html.setAttribute('data-theme','dark'); icon.textContent='☀️'; localStorage.setItem('theme','dark'); } };
-    
-    // Inicialização
-    (function init(){
-        let savedTheme=localStorage.getItem('theme'); 
-        if(savedTheme==='dark'||(!savedTheme&&window.matchMedia('(prefers-color-scheme: dark)').matches)){ 
-            document.documentElement.setAttribute('data-theme','dark'); 
-            document.getElementById('themeIcon').textContent='☀️'; 
-        }
-        // Inicia com fallback, depois tenta carregar remoto
-        examData = JSON.parse(JSON.stringify(fullFallback));
-        Object.keys(examData).forEach(k => { if (state.exames[k] === undefined) state.exames[k] = 0; });
-        updateProntoSocorro();
-        renderExames();
-        calcular();
-        loadRemotePrices(); // tenta atualizar com remoto
-    })();
-</script>
+            // Limpa busca
+            document.getElementById('searchInput').value = '';
+            filterExames();
+        };
+        
+        // Admin: precisa mesclar os dados de ambos os conjuntos (apenas para exibição e edição)
+        window.openAdminPanel = function(){ 
+            let grid=document.getElementById('adminGrid'); 
+            grid.innerHTML=''; 
+            // Exibe todos os exames (ambas as categorias) para edição
+            Object.entries(allExams).forEach(([key,ex])=>{ 
+                let div=document.createElement('div'); 
+                div.className='admin-item'; 
+                div.innerHTML=`<div class="admin-item-name">${ex.name} (${ex.category==='rmtc'?'TC/RM':'EDA/Colono'})</div>
+                    <div class="admin-inputs">
+                        <div class="admin-input-group"><label>Part Normal(100%)</label><input type="number" class="admin-input" id="ad-${key}-pn" value="${ex.particular.normal||''}" step="0.01"></div>
+                        <div class="admin-input-group"><label>Part Normal(20%)</label><input type="number" class="admin-input" id="ad-${key}-psn" value="${ex.particular_segundo.normal||''}" step="0.01"></div>
+                        <div class="admin-input-group"><label>Part Dif(100%)</label><input type="number" class="admin-input" id="ad-${key}-pe" value="${ex.particular.especial||''}" step="0.01"></div>
+                        <div class="admin-input-group"><label>Part Dif(20%)</label><input type="number" class="admin-input" id="ad-${key}-pse" value="${ex.particular_segundo.especial||''}" step="0.01"></div>
+                        <div class="admin-input-group"><label>P.Conv Normal(100%)</label><input type="number" class="admin-input" id="ad-${key}-cn" value="${ex.partconv.normal||''}" step="0.01"></div>
+                        <div class="admin-input-group"><label>P.Conv Normal(20%)</label><input type="number" class="admin-input" id="ad-${key}-csn" value="${ex.partconv_segundo.normal||''}" step="0.01"></div>
+                        <div class="admin-input-group"><label>P.Conv Dif(100%)</label><input type="number" class="admin-input" id="ad-${key}-ce" value="${ex.partconv.especial||''}" step="0.01"></div>
+                        <div class="admin-input-group"><label>P.Conv Dif(20%)</label><input type="number" class="admin-input" id="ad-${key}-cse" value="${ex.partconv_segundo.especial||''}" step="0.01"></div>
+                    </div>`; 
+                grid.appendChild(div); 
+            }); 
+            document.getElementById('adminPanel').classList.add('show'); 
+        };
+        
+        window.saveAdminValues = function(){ 
+            Object.keys(allExams).forEach(key=>{ 
+                allExams[key].particular.normal = parseFloat(document.getElementById(`ad-${key}-pn`).value)||null; 
+                allExams[key].particular_segundo.normal = parseFloat(document.getElementById(`ad-${key}-psn`).value)||null; 
+                allExams[key].particular.especial = parseFloat(document.getElementById(`ad-${key}-pe`).value)||null; 
+                allExams[key].particular_segundo.especial = parseFloat(document.getElementById(`ad-${key}-pse`).value)||null; 
+                allExams[key].partconv.normal = parseFloat(document.getElementById(`ad-${key}-cn`).value)||null; 
+                allExams[key].partconv_segundo.normal = parseFloat(document.getElementById(`ad-${key}-csn`).value)||null; 
+                allExams[key].partconv.especial = parseFloat(document.getElementById(`ad-${key}-ce`).value)||null; 
+                allExams[key].partconv_segundo.especial = parseFloat(document.getElementById(`ad-${key}-cse`).value)||null; 
+            }); 
+            alert('Valores atualizados!'); 
+            closeAdminPanel(); 
+            renderExames(); 
+            calcular(); 
+        };
+        
+        window.closeAdminPanel = function(){ document.getElementById('adminPanel').classList.remove('show'); };
+        window.openPasswordModal = function(){ document.getElementById('passwordOverlay').classList.add('show'); document.getElementById('passwordInput').value=''; document.getElementById('passwordError').style.display='none'; };
+        window.closePasswordModal = function(){ document.getElementById('passwordOverlay').classList.remove('show'); };
+        window.checkPassword = function(){ if(document.getElementById('passwordInput').value===ADMIN_PASSWORD){ closePasswordModal(); openAdminPanel(); } else { document.getElementById('passwordError').style.display='block'; } };
+        window.toggleTheme = function(){ let html=document.documentElement, icon=document.getElementById('themeIcon'); if(html.getAttribute('data-theme')==='dark'){ html.removeAttribute('data-theme'); icon.textContent='🌙'; localStorage.setItem('theme','light'); } else { html.setAttribute('data-theme','dark'); icon.textContent='☀️'; localStorage.setItem('theme','dark'); } };
+        
+        (function init(){ 
+            let saved=localStorage.getItem('theme'); 
+            if(saved==='dark'||(!saved&&window.matchMedia('(prefers-color-scheme: dark)').matches)){ 
+                document.documentElement.setAttribute('data-theme','dark'); 
+                document.getElementById('themeIcon').textContent='☀️'; 
+            } 
+            updateProntoSocorro(); 
+            renderExames(); 
+            calcular(); 
+        })();
+    </script>
 </body>
 </html>
+Atualiza para versão completa com todos os pacotes
