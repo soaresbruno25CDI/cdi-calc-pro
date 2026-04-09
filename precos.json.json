@@ -1,0 +1,14 @@
+{
+  "rm_angio": {
+    "particular": { "normal": 1275, "especial": 1275 },
+    "particular_segundo": { "normal": 1020, "especial": 1020 },
+    "partconv": { "normal": 1147.5, "especial": 1147.5 },
+    "partconv_segundo": { "normal": 918, "especial": 918 }
+  },
+  "colonoscopia_sem_biopsia": {
+    "particular": { "normal": 2471, "especial": 2471 },
+    "particular_segundo": { "normal": 1976.8, "especial": 1976.8 },
+    "partconv": { "normal": 2223.9, "especial": 2223.9 },
+    "partconv_segundo": { "normal": 1779.12, "especial": 1779.12 }
+  }
+}
