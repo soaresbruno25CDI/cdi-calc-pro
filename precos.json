@@ -3,12 +3,229 @@
     "particular": { "normal": 1275, "especial": 1275 },
     "particular_segundo": { "normal": 1020, "especial": 1020 },
     "partconv": { "normal": 1147.5, "especial": 1147.5 },
-    "partconv_segundo": { "normal": 918, "especial": 918 }
+    "partconv_segundo": { "normal": 918, "especial": 918 },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": true
+  },
+  "rm_avc": {
+    "particular": { "normal": 2062, "especial": 2062 },
+    "particular_segundo": { "normal": 1649.6, "especial": 1649.6 },
+    "partconv": { "normal": 1855.8, "especial": 1855.8 },
+    "partconv_segundo": { "normal": 1484.64, "especial": 1484.64 },
+    "incluiContraste": true
+  },
+  "rm_mag": {
+    "particular": { "normal": 977, "especial": 782 },
+    "particular_segundo": { "normal": 781.6, "especial": 625.6 },
+    "partconv": { "normal": 879.3, "especial": 782 },
+    "partconv_segundo": { "normal": 703.44, "especial": 625.6 },
+    "hasEspecial": true,
+    "igualParticular": true
+  },
+  "rm_cont": {
+    "particular": { "normal": null, "especial": 1070 },
+    "particular_segundo": { "normal": null, "especial": 856 },
+    "partconv": { "normal": null, "especial": 1070 },
+    "partconv_segundo": { "normal": null, "especial": 856 },
+    "hasEspecial": true,
+    "onlyEspecial": true,
+    "igualParticular": true,
+    "incluiContraste": true
+  },
+  "tc_ang": {
+    "particular": { "normal": 1118, "especial": 1118 },
+    "particular_segundo": { "normal": 894.4, "especial": 894.4 },
+    "partconv": { "normal": 1006.2, "especial": 1006.2 },
+    "partconv_segundo": { "normal": 804.96, "especial": 804.96 },
+    "incluiContraste": true
+  },
+  "tc_cor": {
+    "particular": { "normal": 1118, "especial": 1118 },
+    "particular_segundo": { "normal": 894.4, "especial": 894.4 },
+    "partconv": { "normal": 1006.2, "especial": 1006.2 },
+    "partconv_segundo": { "normal": 804.96, "especial": 804.96 },
+    "incluiContraste": true
+  },
+  "tc_avc": {
+    "particular": { "normal": 1554, "especial": 1554 },
+    "particular_segundo": { "normal": 1243.2, "especial": 1243.2 },
+    "partconv": { "normal": 1398.6, "especial": 1398.6 },
+    "partconv_segundo": { "normal": 1118.88, "especial": 1118.88 },
+    "incluiContraste": true
+  },
+  "tc_abd": {
+    "particular": { "normal": 738, "especial": 738 },
+    "particular_segundo": { "normal": 590.4, "especial": 590.4 },
+    "partconv": { "normal": 664.2, "especial": 664.2 },
+    "partconv_segundo": { "normal": 531.36, "especial": 531.36 }
+  },
+  "tc_comp": {
+    "particular": { "normal": 521, "especial": 521 },
+    "particular_segundo": { "normal": 416.8, "especial": 416.8 },
+    "partconv": { "normal": 468.9, "especial": 468.9 },
+    "partconv_segundo": { "normal": 375.12, "especial": 375.12 }
+  },
+  "sonoendoscopia": {
+    "particular": { "normal": 1206.81, "especial": 1206.81 },
+    "particular_segundo": { "normal": 965.448, "especial": 965.448 },
+    "partconv": { "normal": 1086.129, "especial": 1086.129 },
+    "partconv_segundo": { "normal": 868.9032, "especial": 868.9032 }
+  },
+  "eda_hpylori": {
+    "particular": { "normal": 2064, "especial": 2064 },
+    "particular_segundo": { "normal": 1651.2, "especial": 1651.2 },
+    "partconv": { "normal": 1857.6, "especial": 1857.6 },
+    "partconv_segundo": { "normal": 1486.08, "especial": 1486.08 }
+  },
+  "eda_biopsia": {
+    "particular": { "normal": 2314, "especial": 2314 },
+    "particular_segundo": { "normal": 1851.2, "especial": 1851.2 },
+    "partconv": { "normal": 2082.6, "especial": 2082.6 },
+    "partconv_segundo": { "normal": 1666.08, "especial": 1666.08 }
+  },
+  "eda_multiplas_biopsias": {
+    "particular": { "normal": 2833, "especial": 2833 },
+    "particular_segundo": { "normal": 2266.4, "especial": 2266.4 },
+    "partconv": { "normal": 2549.7, "especial": 2549.7 },
+    "partconv_segundo": { "normal": 2039.76, "especial": 2039.76 }
+  },
+  "ecoendoscopia_sem_puncao": {
+    "particular": { "normal": 2953, "especial": 2953 },
+    "particular_segundo": { "normal": 2362.4, "especial": 2362.4 },
+    "partconv": { "normal": 2657.7, "especial": 2657.7 },
+    "partconv_segundo": { "normal": 2126.16, "especial": 2126.16 }
+  },
+  "sonda_nasoenteral": {
+    "particular": { "normal": 3059, "especial": 3059 },
+    "particular_segundo": { "normal": 2447.2, "especial": 2447.2 },
+    "partconv": { "normal": 2753.1, "especial": 2753.1 },
+    "partconv_segundo": { "normal": 2202.48, "especial": 2202.48 }
+  },
+  "corpo_estranho": {
+    "particular": { "normal": 3915, "especial": 3915 },
+    "particular_segundo": { "normal": 3132, "especial": 3132 },
+    "partconv": { "normal": 3523.5, "especial": 3523.5 },
+    "partconv_segundo": { "normal": 2818.8, "especial": 2818.8 }
+  },
+  "balao_intragastrico_retirada": {
+    "particular": { "normal": 4000, "especial": 4000 },
+    "particular_segundo": { "normal": 3200, "especial": 3200 },
+    "partconv": { "normal": 3600, "especial": 3600 },
+    "partconv_segundo": { "normal": 2880, "especial": 2880 }
+  },
+  "polipectomia": {
+    "particular": { "normal": 4828, "especial": 4828 },
+    "particular_segundo": { "normal": 3862.4, "especial": 3862.4 },
+    "partconv": { "normal": 4345.2, "especial": 4345.2 },
+    "partconv_segundo": { "normal": 3476.16, "especial": 3476.16 }
+  },
+  "argonio": {
+    "particular": { "normal": 5938, "especial": 5938 },
+    "particular_segundo": { "normal": 4750.4, "especial": 4750.4 },
+    "partconv": { "normal": 5344.2, "especial": 5344.2 },
+    "partconv_segundo": { "normal": 4275.36, "especial": 4275.36 }
+  },
+  "dilatacao_sonda": {
+    "particular": { "normal": 6243, "especial": 6243 },
+    "particular_segundo": { "normal": 4994.4, "especial": 4994.4 },
+    "partconv": { "normal": 5618.7, "especial": 5618.7 },
+    "partconv_segundo": { "normal": 4494.96, "especial": 4494.96 }
+  },
+  "dilatacao_balao": {
+    "particular": { "normal": 6416, "especial": 6416 },
+    "particular_segundo": { "normal": 5132.8, "especial": 5132.8 },
+    "partconv": { "normal": 5774.4, "especial": 5774.4 },
+    "partconv_segundo": { "normal": 4619.52, "especial": 4619.52 }
+  },
+  "gastrostomia": {
+    "particular": { "normal": 7318, "especial": 7318 },
+    "particular_segundo": { "normal": 5854.4, "especial": 5854.4 },
+    "partconv": { "normal": 6586.2, "especial": 6586.2 },
+    "partconv_segundo": { "normal": 5268.96, "especial": 5268.96 }
+  },
+  "ecoendoscopia_com_puncao": {
+    "particular": { "normal": 7609, "especial": 7609 },
+    "particular_segundo": { "normal": 6087.2, "especial": 6087.2 },
+    "partconv": { "normal": 6848.1, "especial": 6848.1 },
+    "partconv_segundo": { "normal": 5478.48, "especial": 5478.48 }
+  },
+  "hemostasia_mecanica": {
+    "particular": { "normal": 7762, "especial": 7762 },
+    "particular_segundo": { "normal": 6209.6, "especial": 6209.6 },
+    "partconv": { "normal": 6985.8, "especial": 6985.8 },
+    "partconv_segundo": { "normal": 5588.64, "especial": 5588.64 }
+  },
+  "mucosectomia": {
+    "particular": { "normal": 8171, "especial": 8171 },
+    "particular_segundo": { "normal": 6536.8, "especial": 6536.8 },
+    "partconv": { "normal": 7353.9, "especial": 7353.9 },
+    "partconv_segundo": { "normal": 5883.12, "especial": 5883.12 }
   },
   "colonoscopia_sem_biopsia": {
     "particular": { "normal": 2471, "especial": 2471 },
     "particular_segundo": { "normal": 1976.8, "especial": 1976.8 },
     "partconv": { "normal": 2223.9, "especial": 2223.9 },
     "partconv_segundo": { "normal": 1779.12, "especial": 1779.12 }
+  },
+  "colonoscopia_biopsia": {
+    "particular": { "normal": 3074, "especial": 3074 },
+    "particular_segundo": { "normal": 2459.2, "especial": 2459.2 },
+    "partconv": { "normal": 2766.6, "especial": 2766.6 },
+    "partconv_segundo": { "normal": 2213.28, "especial": 2213.28 }
+  },
+  "colonoscopia_multiplas_biopsias": {
+    "particular": { "normal": 3592, "especial": 3592 },
+    "particular_segundo": { "normal": 2873.6, "especial": 2873.6 },
+    "partconv": { "normal": 3232.8, "especial": 3232.8 },
+    "partconv_segundo": { "normal": 2586.24, "especial": 2586.24 }
+  },
+  "colonoscopia_dilatacao_balao": {
+    "particular": { "normal": 4724, "especial": 4724 },
+    "particular_segundo": { "normal": 3779.2, "especial": 3779.2 },
+    "partconv": { "normal": 4251.6, "especial": 4251.6 },
+    "partconv_segundo": { "normal": 3401.28, "especial": 3401.28 }
+  },
+  "colocacao_balao_intragastrico": {
+    "particular": { "normal": 6000, "especial": 6000 },
+    "particular_segundo": { "normal": 4800, "especial": 4800 },
+    "partconv": { "normal": 5400, "especial": 5400 },
+    "partconv_segundo": { "normal": 4320, "especial": 4320 }
+  },
+  "colonoscopia_polipectomia": {
+    "particular": { "normal": 6161, "especial": 6161 },
+    "particular_segundo": { "normal": 4928.8, "especial": 4928.8 },
+    "partconv": { "normal": 5544.9, "especial": 5544.9 },
+    "partconv_segundo": { "normal": 4435.92, "especial": 4435.92 }
+  },
+  "colonoscopia_argonio": {
+    "particular": { "normal": 6409, "especial": 6409 },
+    "particular_segundo": { "normal": 5127.2, "especial": 5127.2 },
+    "partconv": { "normal": 5768.1, "especial": 5768.1 },
+    "partconv_segundo": { "normal": 4614.48, "especial": 4614.48 }
+  },
+  "colonoscopia_mucosectomia": {
+    "particular": { "normal": 7448, "especial": 7448 },
+    "particular_segundo": { "normal": 5958.4, "especial": 5958.4 },
+    "partconv": { "normal": 6703.2, "especial": 6703.2 },
+    "partconv_segundo": { "normal": 5362.56, "especial": 5362.56 }
+  },
+  "colonoscopia_hemostasia": {
+    "particular": { "normal": 8197, "especial": 8197 },
+    "particular_segundo": { "normal": 6557.6, "especial": 6557.6 },
+    "partconv": { "normal": 7377.3, "especial": 7377.3 },
+    "partconv_segundo": { "normal": 5901.84, "especial": 5901.84 }
+  },
+  "colonoscopia_completa": {
+    "particular": { "normal": 12010, "especial": 12010 },
+    "particular_segundo": { "normal": 9608, "especial": 9608 },
+    "partconv": { "normal": 10809, "especial": 10809 },
+    "partconv_segundo": { "normal": 8647.2, "especial": 8647.2 }
+  },
+  "colonoscopia_mucosectomia_complexa": {
+    "particular": { "normal": 12112, "especial": 12112 },
+    "particular_segundo": { "normal": 9689.6, "especial": 9689.6 },
+    "partconv": { "normal": 10900.8, "especial": 10900.8 },
+    "partconv_segundo": { "normal": 8720.64, "especial": 8720.64 }
   }
 }
