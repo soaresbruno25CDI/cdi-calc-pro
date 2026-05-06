@@ -785,23 +785,27 @@
         function applyPeriodChange(newPeriod) {
             state.periodo = newPeriod;
             // Atualiza o radio visualmente
-            document.querySelector(`input[name="periodo"][value="${newPeriod}"]`).checked = true;
+            const radio = document.querySelector(`input[name="periodo"][value="${newPeriod}"]`);
+            if(radio) radio.checked = true;
+            
             updateProntoSocorro();
-            document.getElementById('alertEspecial').classList.toggle('show', state.periodo === 'especial');
+            const alEsp = document.getElementById('alertEspecial');
+            if(alEsp) alEsp.classList.toggle('show', state.periodo === 'especial');
+            
             renderExames();
             checkContraste();
             calcular();
         }
         
         function updateState() { 
-            let newOrigem = document.querySelector('input[name="origem"]:checked').value;
-            let newTipo = document.querySelector('input[name="tipo"]:checked').value;
-            // Período já é tratado pelo popup, mas se vier de outro lugar (ex: reset), atualiza
-            state.origem = newOrigem;
-            state.tipo = newTipo;
+            state.origem = document.querySelector('input[name="origem"]:checked').value;
+            state.tipo = document.querySelector('input[name="tipo"]:checked').value;
+            state.periodo = document.querySelector('input[name="periodo"]:checked').value;
             updateProntoSocorro();
             let alPS = document.getElementById('alertPS'); 
-            alPS.classList.toggle('show', state.origem === 'prontosocorro');
+            if(alPS) alPS.classList.toggle('show', state.origem === 'prontosocorro');
+            let alEsp = document.getElementById('alertEspecial');
+            if(alEsp) alEsp.classList.toggle('show', state.periodo === 'especial');
             renderExames(); 
             checkContraste(); 
             calcular(); 
@@ -948,10 +952,29 @@
             state.exames={}; 
             Object.keys(examData).forEach(k=>state.exames[k]=0); 
             state.contraste=false; state.anestesia=false; 
+            state.periodo='normal';
+            state.origem='eletivo';
+            state.tipo='particular';
+            
             document.getElementById('chkContraste').checked=false; 
             document.getElementById('chkAnestesia').checked=false; 
             document.getElementById('cardContraste').classList.remove('selected'); 
             document.getElementById('cardAnestesia').classList.remove('selected'); 
+            
+            // Resetar botões radio visualmente
+            const radOrigem = document.querySelector('input[name="origem"][value="eletivo"]');
+            if(radOrigem) radOrigem.checked = true;
+            const radTipo = document.querySelector('input[name="tipo"][value="particular"]');
+            if(radTipo) radTipo.checked = true;
+            const radPeriodo = document.querySelector('input[name="periodo"][value="normal"]');
+            if(radPeriodo) radPeriodo.checked = true;
+            
+            updateProntoSocorro();
+            const alEsp = document.getElementById('alertEspecial');
+            if(alEsp) alEsp.classList.remove('show');
+            const alPS = document.getElementById('alertPS');
+            if(alPS) alPS.classList.remove('show');
+            
             renderExames(); 
             checkContraste(); 
             calcular(); 
@@ -1063,4 +1086,3 @@
     </script>
 </body>
 </html>
-Atualiza para versão completa com todos os pacotes
