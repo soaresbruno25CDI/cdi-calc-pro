@@ -835,47 +835,72 @@
             }); 
         };
         
-        function calcular(){ 
-            let itens=[]; 
-            let total=0; 
-            Object.entries(state.exames).forEach(([key,qtd])=>{ 
-                if(qtd>0 && isAvailable(key)){ 
-                    let ex=examData[key]; 
-                    let v100=getValor(key,false), v20=getValor(key,true); 
-                    let nome=ex.name+(hasEspecial(key)?' (Dif)':''); 
-                    for(let i=0;i<qtd;i++) itens.push({nome, abrev:abreviar(nome), v100, v20}); 
-                } 
-            }); 
-            itens.sort((a,b)=>b.v100-a.v100); 
-            let detalhe=[]; 
-            itens.forEach((it,idx)=>{ 
-                if(idx===0){ total+=it.v100; detalhe.push({nome:it.nome,abrev:it.abrev,perc:'100%',valor:it.v100}); } 
-                else { total+=it.v20; detalhe.push({nome:it.nome,abrev:it.abrev,perc:'20%',valor:it.v20}); } 
-            }); 
-            let temContrasteIncluso = Object.keys(examData).some(key => examData[key]?.incluiContraste && state.exames[key] > 0); 
-            if(state.contraste && !temContrasteIncluso){ total+=360; detalhe.push({nome:'Contraste',abrev:'Contr',perc:'100%',valor:360}); } 
-            if(state.anestesia){ total+=1073; detalhe.push({nome:'Anestesia / Sedação',abrev:'Sed',perc:'100%',valor:1073}); } 
-            document.getElementById('totalValue').textContent='R$ '+total.toLocaleString('pt-BR',{minimumFractionDigits:2}); 
-            let txt=detalhe.length? detalhe.map(d=>`${d.nome.length>30?d.nome.substring(0,30)+'...':d.nome} (${d.perc}) ${'.'.repeat(35-(d.nome.length>30?30:d.nome.length)-d.perc.length)} R$ ${d.valor.toLocaleString('pt-BR',{minimumFractionDigits:2})}`).join('\n')+`\n${'='.repeat(50)}\nTOTAL${'.'.repeat(35)} R$ ${total.toLocaleString('pt-BR',{minimumFractionDigits:2})}` : 'Selecione os exames...'; 
-            document.getElementById('detailBox').textContent=txt; 
+        function getCalculatedItems() {
+            let rawItens = [];
+            Object.entries(state.exames).forEach(([key, qtd]) => {
+                if (qtd > 0 && isAvailable(key)) {
+                    let ex = examData[key];
+                    let v100 = getValor(key, false), v20 = getValor(key, true);
+                    let nome = ex.name + (hasEspecial(key) ? ' (Dif)' : '');
+                    for (let i = 0; i < qtd; i++) rawItens.push({ nome, abrev: abreviar(nome), v100, v20 });
+                }
+            });
+            // Ordena pelo valor 100% (maior primeiro) para aplicar regra do 1º exame
+            rawItens.sort((a, b) => b.v100 - a.v100);
             
-            // Construir texto TASY incluindo Origem, Tipo e Período
+            let items = [];
+            let total = 0;
+            rawItens.forEach((it, idx) => {
+                let valor = (idx === 0) ? it.v100 : it.v20;
+                let perc = (idx === 0) ? '100%' : '20%';
+                total += valor;
+                items.push({ ...it, valor, perc });
+            });
+            
+            let temContrasteIncluso = Object.keys(examData).some(key => examData[key]?.incluiContraste && state.exames[key] > 0);
+            if (state.contraste && !temContrasteIncluso) {
+                total += 360;
+                items.push({ nome: 'Contraste', abrev: 'Contr', perc: '100%', valor: 360 });
+            }
+            if (state.anestesia) {
+                total += 1073;
+                items.push({ nome: 'Anestesia / Sedação', abrev: 'Sed', perc: '100%', valor: 1073 });
+            }
+            return { items, total };
+        }
+
+        function calcular() {
+            let { items, total } = getCalculatedItems();
+            
+            document.getElementById('totalValue').textContent = 'R$ ' + total.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+            let txt = items.length ? items.map(d => `${d.nome.length > 30 ? d.nome.substring(0, 30) + '...' : d.nome} (${d.perc}) ${'.'.repeat(35 - (d.nome.length > 30 ? 30 : d.nome.length) - d.perc.length)} R$ ${d.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`).join('\n') + `\n${'='.repeat(50)}\nTOTAL${'.'.repeat(35)} R$ ${total.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}` : 'Selecione os exames...';
+            document.getElementById('detailBox').textContent = txt;
+
             let origemTexto = state.origem === 'eletivo' ? 'Eletivo' : 'Pronto-Socorro';
             let tipoTexto = state.tipo === 'particular' ? 'Particular' : 'Part Conv';
             let periodoTexto = state.periodo === 'normal' ? 'Normal' : 'Dom/Fer/22-6h';
             let headerTasy = `[Origem: ${origemTexto} | Tipo: ${tipoTexto} | Período: ${periodoTexto}] `;
-            
-            let tasyBody = detalhe.length? detalhe.map((d,i)=>`${d.abrev}(${d.perc}) R$${Math.round(d.valor)}`).join('; ') : '';
+
+            let tasyBody = items.length ? items.map((d, i) => `${d.abrev}(${d.perc}) R$${Math.round(d.valor)}`).join('; ') : '';
             let tasy = tasyBody ? headerTasy + tasyBody + `; Tot:R$${Math.round(total)}` : '';
-            
-            let cc=document.getElementById('charCount'); 
-            if(tasy.length>250){ cc.textContent=`⚠️ ${tasy.length}/250 (Excedido)`; cc.className='char-count error'; tasy=tasy.substring(0,247)+'...'; } 
-            else if(tasy.length>200){ cc.textContent=`⚠️ ${tasy.length}/250 (Próximo)`; cc.className='char-count warning'; } 
-            else { cc.textContent=`${tasy.length}/250 chars`; cc.className='char-count'; } 
-            window._total=total; window._tasy=tasy; 
-            let c=contarExames(); 
-            document.getElementById('limitCounter').textContent=`${c}/9`; 
-            document.getElementById('limitCounter').className=`limit-counter ${c>=9?'error':c>=7?'warning':''}`; 
+
+            let cc = document.getElementById('charCount');
+            if (tasy.length > 250) {
+                cc.textContent = `⚠️ ${tasy.length}/250 (Excedido)`;
+                cc.className = 'char-count error';
+                tasy = tasy.substring(0, 247) + '...';
+            } else if (tasy.length > 200) {
+                cc.textContent = `⚠️ ${tasy.length}/250 (Próximo)`;
+                cc.className = 'char-count warning';
+            } else {
+                cc.textContent = `${tasy.length}/250 chars`;
+                cc.className = 'char-count';
+            }
+            window._total = total;
+            window._tasy = tasy;
+            let c = contarExames();
+            document.getElementById('limitCounter').textContent = `${c}/9`;
+            document.getElementById('limitCounter').className = `limit-counter ${c >= 9 ? 'error' : c >= 7 ? 'warning' : ''}`;
         }
         
         window.copyValor = function(){ navigator.clipboard.writeText((window._total||0).toLocaleString('pt-BR',{minimumFractionDigits:2})).then(()=>alert('Valor copiado!')); };
@@ -895,26 +920,25 @@
             return html;
         }
         
-        function buildTasySummaryHTML(){ 
-            let items=[]; 
-            let totalGeral=0; 
-            Object.entries(state.exames).forEach(([key,qtd])=>{ 
-                if(qtd>0 && isAvailable(key)){ 
-                    let ex=examData[key]; 
-                    let v100=getValor(key,false), v20=getValor(key,true); 
-                    let exTotal=0; 
-                    for(let i=0;i<qtd;i++){ if(i===0) exTotal+=v100; else exTotal+=v20; } 
-                    totalGeral+=exTotal; 
-                    items.push({name:ex.name+(hasEspecial(key)?' (Dif)':''), quantity:qtd, unitFirst:v100, unitOther:v20, total:exTotal}); 
-                } 
-            }); 
-            let temContrasteIncluso = Object.keys(examData).some(key => examData[key]?.incluiContraste && state.exames[key] > 0); 
-            if(state.contraste && !temContrasteIncluso){ items.push({name:'Contraste', quantity:1, unitFirst:360, unitOther:360, total:360}); totalGeral+=360; } 
-            if(state.anestesia){ items.push({name:'Sedação', quantity:1, unitFirst:1073, unitOther:1073, total:1073}); totalGeral+=1073; } 
-            let html='<table class="tasy-summary-table"><thead><tr><th>Exame</th><th>Qtd</th><th>Valor unitário (1º)</th><th>Total</th></tr></thead><tbody>'; 
-            items.forEach(it=>{ html+=`<tr><td>${it.name}</td><td>${it.quantity}x</td><td>R$ ${it.unitFirst.toLocaleString('pt-BR',{minFractionDigits:2})}${it.quantity>1?` (demais: R$ ${it.unitOther.toLocaleString('pt-BR',{minFractionDigits:2})})`:''}</td><td><strong>R$ ${it.total.toLocaleString('pt-BR',{minFractionDigits:2})}</strong></td></tr>`; }); 
-            html+=`</tbody></table><div class="tasy-grandtotal">💰 TOTAL GERAL: R$ ${totalGeral.toLocaleString('pt-BR',{minFractionDigits:2})}</div>`; 
-            return {html, totalGeral}; 
+        function buildTasySummaryHTML() {
+            let { items, total } = getCalculatedItems();
+            
+            // Agrupar itens repetidos para a tabela do TASY
+            let grouped = {};
+            items.forEach(it => {
+                if (!grouped[it.nome]) grouped[it.nome] = { name: it.nome, quantity: 0, details: [] };
+                grouped[it.nome].quantity++;
+                grouped[it.nome].details.push(it);
+            });
+
+            let html = '<table class="tasy-summary-table"><thead><tr><th>Exame</th><th>Qtd</th><th>Valor unitário</th><th>Total</th></tr></thead><tbody>';
+            Object.values(grouped).forEach(g => {
+                let gTotal = g.details.reduce((a, b) => a + b.valor, 0);
+                let unitInfo = g.details.map(d => `R$ ${d.valor.toLocaleString('pt-BR', { minFractionDigits: 2 })} (${d.perc})`).join('<br>');
+                html += `<tr><td>${g.name}</td><td>${g.quantity}x</td><td>${unitInfo}</td><td><strong>R$ ${gTotal.toLocaleString('pt-BR', { minFractionDigits: 2 })}</strong></td></tr>`;
+            });
+            html += `</tbody></table><div class="tasy-grandtotal">💰 TOTAL GERAL: R$ ${total.toLocaleString('pt-BR', { minFractionDigits: 2 })}</div>`;
+            return { html, totalGeral: total };
         }
         
         window.openTasyConfirm = function(){ 
@@ -928,24 +952,58 @@
         window.closeTasyModal = function(){ document.getElementById('tasyConfirmModal').classList.remove('show'); };
         window.confirmCopyTasy = function(){ if(window._tasy){ navigator.clipboard.writeText(window._tasy).then(()=>{ alert('✅ Texto TASY copiado com sucesso!'); closeTasyModal(); }).catch(()=>alert('Erro ao copiar')); } else { alert('Nada para copiar.'); closeTasyModal(); } };
         
-        window.gerarPDF = function() { 
-            const {jsPDF}=window.jspdf; 
-            let doc=new jsPDF(); 
-            let y=15, w=doc.internal.pageSize.getWidth(); 
-            doc.setFillColor(0,102,204); doc.rect(0,0,w,40,'F'); 
-            doc.setTextColor(255,255,255); doc.setFontSize(18); doc.text('ORÇAMENTO CDI',w/2,25,{align:'center'}); 
-            doc.setFontSize(9); doc.text(new Date().toLocaleString('pt-BR'),w/2,33,{align:'center'}); 
-            y=50; doc.setTextColor(0,0,0); doc.setFontSize(10); 
-            doc.text(`Origem: ${state.origem==='eletivo'?'Eletivo':'Pronto-Socorro'}`,15,y); y+=6; 
-            doc.text(`Tipo: ${state.tipo==='particular'?'Particular':'Part. Convênio'}`,15,y); y+=6; 
-            doc.text(`Período: ${state.periodo==='normal'?'Horário Normal':'Dom/Fer/22-6h'}`,15,y); y+=10; 
-            let its=[]; let tot=0; 
-            Object.entries(state.exames).forEach(([k,q])=>{ if(q>0 && isAvailable(k)){ let ex=examData[k]; let v1=getValor(k,false), v2=getValor(k,true); for(let i=0;i<q;i++){ if(its.length===0){ its.push({n:ex.name,v:v1,p:'100%'}); tot+=v1; } else { its.push({n:ex.name,v:v2,p:'20%'}); tot+=v2; } } } }); 
-            let temContrasteInclusoPDF = Object.keys(examData).some(key => examData[key]?.incluiContraste && state.exames[key] > 0); 
-            if(state.contraste && !temContrasteInclusoPDF){ its.push({n:'Contraste',v:360,p:'100%'}); tot+=360; } 
-            if(state.anestesia){ its.push({n:'Anestesia / Sedação',v:1073,p:'100%'}); tot+=1073; } 
-            if(its.length){ doc.setFontSize(11); doc.setFont(undefined,'bold'); doc.text('ITENS',15,y); y+=8; doc.setFont(undefined,'normal'); its.forEach(it=>{ if(y>280){ doc.addPage(); y=20; } let nm=it.n.length>50?it.n.substring(0,50)+'...':it.n; doc.text(nm,15,y); doc.text(it.p,w-15-40,y); doc.text('R$ '+it.v.toLocaleString('pt-BR',{minFractionDigits:2}),w-15,y,{align:'right'}); y+=6; }); y+=5; doc.setDrawColor(0,102,204); doc.line(15,y,w-15,y); y+=8; doc.setFont(undefined,'bold'); doc.setFontSize(13); doc.text('TOTAL:',15,y); doc.text('R$ '+tot.toLocaleString('pt-BR',{minFractionDigits:2}),w-15,y,{align:'right'}); } 
-            doc.save(`orcamento_cdi_${Date.now()}.pdf`); 
+        window.gerarPDF = function() {
+            const { jsPDF } = window.jspdf;
+            let doc = new jsPDF();
+            let y = 15, w = doc.internal.pageSize.getWidth();
+            
+            // Header
+            doc.setFillColor(0, 102, 204);
+            doc.rect(0, 0, w, 40, 'F');
+            doc.setTextColor(255, 255, 255);
+            doc.setFontSize(18);
+            doc.text('ORÇAMENTO CDI', w / 2, 25, { align: 'center' });
+            doc.setFontSize(9);
+            doc.text(new Date().toLocaleString('pt-BR'), w / 2, 33, { align: 'center' });
+            
+            y = 50;
+            doc.setTextColor(0, 0, 0);
+            doc.setFontSize(10);
+            doc.text(`Origem: ${state.origem === 'eletivo' ? 'Eletivo' : 'Pronto-Socorro'}`, 15, y); y += 6;
+            doc.text(`Tipo: ${state.tipo === 'particular' ? 'Particular' : 'Part. Convênio'}`, 15, y); y += 6;
+            doc.text(`Período: ${state.periodo === 'normal' ? 'Horário Normal' : 'Dom/Fer/22-6h'}`, 15, y); y += 10;
+            
+            let { items, total } = getCalculatedItems();
+            
+            if (items.length) {
+                doc.setFontSize(11);
+                doc.setFont(undefined, 'bold');
+                doc.text('ITENS', 15, y);
+                y += 8;
+                doc.setFont(undefined, 'normal');
+                
+                items.forEach(it => {
+                    if (y > 270) {
+                        doc.addPage();
+                        y = 20;
+                    }
+                    let nm = it.nome.length > 50 ? it.nome.substring(0, 50) + '...' : it.nome;
+                    doc.text(nm, 15, y);
+                    doc.text(it.perc, w - 15 - 40, y);
+                    doc.text('R$ ' + it.valor.toLocaleString('pt-BR', { minFractionDigits: 2 }), w - 15, y, { align: 'right' });
+                    y += 6;
+                });
+                
+                y += 5;
+                doc.setDrawColor(0, 102, 204);
+                doc.line(15, y, w - 15, y);
+                y += 8;
+                doc.setFont(undefined, 'bold');
+                doc.setFontSize(13);
+                doc.text('TOTAL:', 15, y);
+                doc.text('R$ ' + total.toLocaleString('pt-BR', { minFractionDigits: 2 }), w - 15, y, { align: 'right' });
+            }
+            doc.save(`orcamento_cdi_${Date.now()}.pdf`);
         };
         
         window.resetAll = function(){ 
