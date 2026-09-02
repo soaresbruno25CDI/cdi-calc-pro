@@ -1,231 +1,2446 @@
 {
-  "rm_angio": {
-    "particular": { "normal": 1275, "especial": 1275 },
-    "particular_segundo": { "normal": 1020, "especial": 1020 },
-    "partconv": { "normal": 1147.5, "especial": 1147.5 },
-    "partconv_segundo": { "normal": 918, "especial": 918 },
+  "tc_ang": {
+    "code": "88800010",
+    "name": "TC - Angiotomografia (pacote) COM CONTRASTE",
+    "category": "rmtc",
+    "particular": {
+      "normal": 1342.0,
+      "especial": 1342.0
+    },
+    "particular_segundo": {
+      "normal": 1073.6,
+      "especial": 1073.6
+    },
+    "partconv": {
+      "normal": 1207.8,
+      "especial": 1207.8
+    },
+    "partconv_segundo": {
+      "normal": 966.24,
+      "especial": 966.24
+    },
     "hasEspecial": false,
     "onlyEspecial": false,
-    "incluiContraste": true
-  },
-  "rm_avc": {
-    "particular": { "normal": 2062, "especial": 2062 },
-    "particular_segundo": { "normal": 1649.6, "especial": 1649.6 },
-    "partconv": { "normal": 1855.8, "especial": 1855.8 },
-    "partconv_segundo": { "normal": 1484.64, "especial": 1484.64 },
-    "incluiContraste": true
-  },
-  "rm_mag": {
-    "particular": { "normal": 977, "especial": 782 },
-    "particular_segundo": { "normal": 781.6, "especial": 625.6 },
-    "partconv": { "normal": 879.3, "especial": 782 },
-    "partconv_segundo": { "normal": 703.44, "especial": 625.6 },
-    "hasEspecial": true,
-    "igualParticular": true
-  },
-  "rm_cont": {
-    "particular": { "normal": null, "especial": 1070 },
-    "particular_segundo": { "normal": null, "especial": 856 },
-    "partconv": { "normal": null, "especial": 1070 },
-    "partconv_segundo": { "normal": null, "especial": 856 },
-    "hasEspecial": true,
-    "onlyEspecial": true,
-    "igualParticular": true,
-    "incluiContraste": true
-  },
-  "tc_ang": {
-    "particular": { "normal": 1118, "especial": 1118 },
-    "particular_segundo": { "normal": 894.4, "especial": 894.4 },
-    "partconv": { "normal": 1006.2, "especial": 1006.2 },
-    "partconv_segundo": { "normal": 804.96, "especial": 804.96 },
-    "incluiContraste": true
-  },
-  "tc_cor": {
-    "particular": { "normal": 1118, "especial": 1118 },
-    "particular_segundo": { "normal": 894.4, "especial": 894.4 },
-    "partconv": { "normal": 1006.2, "especial": 1006.2 },
-    "partconv_segundo": { "normal": 804.96, "especial": 804.96 },
-    "incluiContraste": true
-  },
-  "tc_avc": {
-    "particular": { "normal": 1554, "especial": 1554 },
-    "particular_segundo": { "normal": 1243.2, "especial": 1243.2 },
-    "partconv": { "normal": 1398.6, "especial": 1398.6 },
-    "partconv_segundo": { "normal": 1118.88, "especial": 1118.88 },
-    "incluiContraste": true
+    "incluiContraste": true,
+    "composicao": "INCLUSO: Taxas de sala e equipamentos, serviços de enfermagem, honorário médico e materiais e medicamentos pertinentes ao contraste. EXCLUSO: Honorário médico do anestesista e materiais e medicamentos do anestesista. INFORMAÇÕES ADICIONAIS: Quando solicitado TC e/ou RM, a cobrança será por segmentos.",
+    "codeTuss": null
   },
   "tc_abd": {
-    "particular": { "normal": 738, "especial": 738 },
-    "particular_segundo": { "normal": 590.4, "especial": 590.4 },
-    "partconv": { "normal": 664.2, "especial": 664.2 },
-    "partconv_segundo": { "normal": 531.36, "especial": 531.36 }
+    "code": "888000150",
+    "name": "TC - Tomografia abdome total (pacote)",
+    "category": "rmtc",
+    "particular": {
+      "normal": 886.0,
+      "especial": 886.0
+    },
+    "particular_segundo": {
+      "normal": 708.8,
+      "especial": 708.8
+    },
+    "partconv": {
+      "normal": 797.4,
+      "especial": 797.4
+    },
+    "partconv_segundo": {
+      "normal": 637.92,
+      "especial": 637.92
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSO: Taxas de sala e equipamentos, serviços de enfermagem e honorário médico. EXCLUSO: Materiais e medicamentos de anestesia e contraste e honorário médico do anestesista. INFORMAÇÕES ADICIONAIS: Quando solicitado TC e/ou RM, a cobrança será por segmento; por exemplo, cervical + torácica serão cobrados dois exames.",
+    "codeTuss": null
   },
   "tc_comp": {
-    "particular": { "normal": 521, "especial": 521 },
-    "particular_segundo": { "normal": 416.8, "especial": 416.8 },
-    "partconv": { "normal": 468.9, "especial": 468.9 },
-    "partconv_segundo": { "normal": 375.12, "especial": 375.12 }
+    "code": "888000146",
+    "name": "TC - Tomografia computadorizada (pacote)",
+    "category": "rmtc",
+    "particular": {
+      "normal": 730.0,
+      "especial": 730.0
+    },
+    "particular_segundo": {
+      "normal": 584.0,
+      "especial": 584.0
+    },
+    "partconv": {
+      "normal": 657.0,
+      "especial": 657.0
+    },
+    "partconv_segundo": {
+      "normal": 525.6,
+      "especial": 525.6
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSO: Taxas de sala e equipamentos, serviços de enfermagem e honorário médico. EXCLUSO: Materiais e medicamentos de anestesia e contraste e honorário médico do anestesista. INFORMAÇÕES ADICIONAIS: Quando solicitado TC e/ou RM, a cobrança será por segmento; por exemplo, cervical + torácica serão cobrados dois exames.",
+    "codeTuss": null
+  },
+  "tc_avc": {
+    "code": "89101230",
+    "name": "TC - Pacote AVC (crânio + angio arterial crânio + angio cervical)",
+    "category": "rmtc",
+    "particular": {
+      "normal": 1865.0,
+      "especial": 1865.0
+    },
+    "particular_segundo": {
+      "normal": 1492.0,
+      "especial": 1492.0
+    },
+    "partconv": {
+      "normal": 1678.5,
+      "especial": 1678.5
+    },
+    "partconv_segundo": {
+      "normal": 1342.8,
+      "especial": 1342.8
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": true,
+    "composicao": "INCLUSO: Taxas de sala e equipamentos, serviços de enfermagem, honorário médico e materiais e medicamentos pertinentes ao contraste. EXCLUSO: Materiais e medicamentos de anestesia e honorário médico do anestesista. INFORMAÇÕES ADICIONAIS: Quando solicitado TC e/ou RM, a cobrança será por segmentos.",
+    "codeTuss": "41001370"
+  },
+  "rm_mag": {
+    "code": "888000154",
+    "name": "RM - Ressonância magnética (sem contraste)",
+    "category": "rmtc",
+    "particular": {
+      "normal": 1173.0,
+      "especial": 1173.0
+    },
+    "particular_segundo": {
+      "normal": 938.4,
+      "especial": 938.4
+    },
+    "partconv": {
+      "normal": 1055.7,
+      "especial": 1055.7
+    },
+    "partconv_segundo": {
+      "normal": 844.56,
+      "especial": 844.56
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": true,
+    "composicao": "INCLUSO: Taxas de sala e equipamentos, serviços de enfermagem e honorário médico. EXCLUSO: Materiais e medicamentos de anestesia e contraste e honorário médico do anestesista. INFORMAÇÕES ADICIONAIS: Quando solicitado TC e/ou RM, a cobrança será por segmento; por exemplo, cervical + torácica serão cobrados dois exames.",
+    "codeTuss": null
+  },
+  "rm_cont": {
+    "code": "89101228",
+    "name": "RM - Ressonância magnética com contraste (pacote)",
+    "category": "rmtc",
+    "particular": {
+      "normal": null,
+      "especial": 1389.0
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": 1111.2
+    },
+    "partconv": {
+      "normal": null,
+      "especial": 1250.1
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": 1000.08
+    },
+    "hasEspecial": true,
+    "onlyEspecial": true,
+    "incluiContraste": true,
+    "composicao": "OS PACOTES SÃO VÁLIDOS PARA OS REGIMES DE ATENDIMENTO AMBULATÓRIO E EXTERNO. APLICABILIDADE: Agendamentos de segunda a sábado, das 22h às 6h, e domingo e feriado durante todo o dia. INCLUSO: Taxas de sala e equipamentos, serviços de enfermagem, honorário médico e materiais e medicamentos pertinentes ao contraste. EXCLUSO: Materiais e medicamentos de anestesia e honorário médico do anestesista. INFORMAÇÕES ADICIONAIS: A cobrança será por segmento.",
+    "codeTuss": null
+  },
+  "rm_angio": {
+    "code": "888000164",
+    "name": "RM - Angiorressonância (com contraste)",
+    "category": "rmtc",
+    "particular": {
+      "normal": 1530.0,
+      "especial": 1530.0
+    },
+    "particular_segundo": {
+      "normal": 1224.0,
+      "especial": 1224.0
+    },
+    "partconv": {
+      "normal": 1377.0,
+      "especial": 1377.0
+    },
+    "partconv_segundo": {
+      "normal": 1101.6,
+      "especial": 1101.6
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": true,
+    "composicao": "INCLUSO: Taxas de sala e equipamentos, serviços de enfermagem, honorário médico e materiais e medicamentos pertinentes ao contraste. EXCLUSO: Materiais e medicamentos de anestesia e honorário médico do anestesista. INFORMAÇÕES ADICIONAIS: Quando solicitado TC e/ou RM, a cobrança será por segmento.",
+    "codeTuss": null
+  },
+  "rm_avc": {
+    "code": "89101229",
+    "name": "RM - Pacote AVC (crânio + angio arterial crânio + angio cervical)",
+    "category": "rmtc",
+    "particular": {
+      "normal": 2475.0,
+      "especial": 2475.0
+    },
+    "particular_segundo": {
+      "normal": 1980.0,
+      "especial": 1980.0
+    },
+    "partconv": {
+      "normal": 2227.5,
+      "especial": 2227.5
+    },
+    "partconv_segundo": {
+      "normal": 1782.0,
+      "especial": 1782.0
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": true,
+    "composicao": "INCLUSO: Taxas de sala e equipamentos, serviços de enfermagem, honorário médico e materiais e medicamentos pertinentes ao contraste. EXCLUSO: Materiais e medicamentos de anestesia e honorário médico do anestesista. INFORMAÇÕES ADICIONAIS: Quando solicitado TC e/ou RM, a cobrança será por segmento.",
+    "codeTuss": "41101537"
+  },
+  "rm_hidro": {
+    "code": "888000168",
+    "name": "RM - Hidro-RM (Colangio, Uro, Mielo, Sialo)",
+    "category": "rmtc",
+    "particular": {
+      "normal": 2085.0,
+      "especial": 2085.0
+    },
+    "particular_segundo": {
+      "normal": 1668.0,
+      "especial": 1668.0
+    },
+    "partconv": {
+      "normal": 1876.5,
+      "especial": 1876.5
+    },
+    "partconv_segundo": {
+      "normal": 1501.2,
+      "especial": 1501.2
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "PACOTE EXCLUSIVO PARA O REGIME DE ATENDIMENTO INTERNADO. INCLUI: Honorário médico, materiais, medicamentos, serviços de enfermagem, taxa de sala e contraste. EXCLUSO: Diárias, OPME, medicamentos especiais e de uso contínuo e pessoal do paciente, honorários médicos não pertinentes ao procedimento e itens não mencionados nas inclusões. Atenção: quando necessário contraste em mais de um procedimento, cobrar o procedimento de maior valor como pacote e os demais como conta aberta.",
+    "codeTuss": "41101359"
   },
   "sonoendoscopia": {
-    "particular": { "normal": 1206.81, "especial": 1206.81 },
-    "particular_segundo": { "normal": 965.448, "especial": 965.448 },
-    "partconv": { "normal": 1086.129, "especial": 1086.129 },
-    "partconv_segundo": { "normal": 868.9032, "especial": 868.9032 }
+    "code": "88000630",
+    "name": "PACOTE SONOENDOSCOPIA",
+    "category": "endocolono",
+    "particular": {
+      "normal": 1262.81,
+      "especial": 1262.81
+    },
+    "particular_segundo": {
+      "normal": 1010.25,
+      "especial": 1010.25
+    },
+    "partconv": {
+      "normal": 1136.53,
+      "especial": 1136.53
+    },
+    "partconv_segundo": {
+      "normal": 909.22,
+      "especial": 909.22
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUI: Equipamentos; gasoterapia; material comum; medicamentos; taxa de sala; taxas de serviço; honorário médico e anestesista. EXCLUI: Biópsia; materiais especiais; procedimentos realizados no centro cirúrgico; sangue e/ou hemoderivados.",
+    "codeTuss": "23202764"
   },
   "eda_hpylori": {
-    "particular": { "normal": 2064, "especial": 2064 },
-    "particular_segundo": { "normal": 1651.2, "especial": 1651.2 },
-    "partconv": { "normal": 1857.6, "especial": 1857.6 },
-    "partconv_segundo": { "normal": 1486.08, "especial": 1486.08 }
+    "code": "88800089",
+    "name": "PACOTE ENDOSCOPIA DIGESTIVA ALTA COM OU SEM PESQUISA DE H. PYLORI",
+    "category": "endocolono",
+    "particular": {
+      "normal": 2159.77,
+      "especial": 2159.77
+    },
+    "particular_segundo": {
+      "normal": 1727.82,
+      "especial": 1727.82
+    },
+    "partconv": {
+      "normal": 1943.79,
+      "especial": 1943.79
+    },
+    "partconv_segundo": {
+      "normal": 1555.03,
+      "especial": 1555.03
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos; anátomo patológico; órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. OPME INCLUSO: 1 pinça de biópsia.",
+    "codeTuss": "40202615 ou 40201120"
   },
   "eda_biopsia": {
-    "particular": { "normal": 2314, "especial": 2314 },
-    "particular_segundo": { "normal": 1851.2, "especial": 1851.2 },
-    "partconv": { "normal": 2082.6, "especial": 2082.6 },
-    "partconv_segundo": { "normal": 1666.08, "especial": 1666.08 }
+    "code": "88800090",
+    "name": "PACOTE ENDOSCOPIA DIGESTIVA ALTA + BIOPSIA",
+    "category": "endocolono",
+    "particular": {
+      "normal": 2421.37,
+      "especial": 2421.37
+    },
+    "particular_segundo": {
+      "normal": 1937.1,
+      "especial": 1937.1
+    },
+    "partconv": {
+      "normal": 2179.23,
+      "especial": 2179.23
+    },
+    "partconv_segundo": {
+      "normal": 1743.38,
+      "especial": 1743.38
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos;  órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. INCLUI: 1 anatomopatológico. OPME INCLUSO: 1 pinça de biópsia.",
+    "codeTuss": "40202615"
   },
   "eda_multiplas_biopsias": {
-    "particular": { "normal": 2833, "especial": 2833 },
-    "particular_segundo": { "normal": 2266.4, "especial": 2266.4 },
-    "partconv": { "normal": 2549.7, "especial": 2549.7 },
-    "partconv_segundo": { "normal": 2039.76, "especial": 2039.76 }
+    "code": "88800091",
+    "name": "PACOTE ENDOSCOPIA DIGESTIVA ALTA + MÚLTIPLAS BIÓPSIAS",
+    "category": "endocolono",
+    "particular": {
+      "normal": 2964.45,
+      "especial": 2964.45
+    },
+    "particular_segundo": {
+      "normal": 2371.56,
+      "especial": 2371.56
+    },
+    "partconv": {
+      "normal": 2668.01,
+      "especial": 2668.01
+    },
+    "partconv_segundo": {
+      "normal": 2134.41,
+      "especial": 2134.41
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos;  órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. INCLUI: 1 anatomopatológico com múltiplas biópsias (até 5 fragmentos da mesma região). OPME INCLUSO: 1 pinça de biópsia.",
+    "codeTuss": "40202615"
   },
   "ecoendoscopia_sem_puncao": {
-    "particular": { "normal": 2953, "especial": 2953 },
-    "particular_segundo": { "normal": 2362.4, "especial": 2362.4 },
-    "partconv": { "normal": 2657.7, "especial": 2657.7 },
-    "partconv_segundo": { "normal": 2126.16, "especial": 2126.16 }
+    "code": "88800094",
+    "name": "PACOTE ECOENDOSCOPIA ALTA OU BAIXA SEM PUNÇÃO",
+    "category": "endocolono",
+    "particular": {
+      "normal": 3090.02,
+      "especial": 3090.02
+    },
+    "particular_segundo": {
+      "normal": 2472.02,
+      "especial": 2472.02
+    },
+    "partconv": {
+      "normal": 2781.02,
+      "especial": 2781.02
+    },
+    "partconv_segundo": {
+      "normal": 2224.82,
+      "especial": 2224.82
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos; anátomo patológico; órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões.",
+    "codeTuss": "40201104"
   },
   "sonda_nasoenteral": {
-    "particular": { "normal": 3059, "especial": 3059 },
-    "particular_segundo": { "normal": 2447.2, "especial": 2447.2 },
-    "partconv": { "normal": 2753.1, "especial": 2753.1 },
-    "partconv_segundo": { "normal": 2202.48, "especial": 2202.48 }
+    "code": "88800109",
+    "name": "PACOTE ENDOSCOPIA + PASSAGEM DE SONDA NASOENTERAL",
+    "category": "endocolono",
+    "particular": {
+      "normal": 3200.94,
+      "especial": 3200.94
+    },
+    "particular_segundo": {
+      "normal": 2560.75,
+      "especial": 2560.75
+    },
+    "partconv": {
+      "normal": 2880.85,
+      "especial": 2880.85
+    },
+    "partconv_segundo": {
+      "normal": 2304.68,
+      "especial": 2304.68
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos; anátomo patológico; órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. OPME INCLUSO: 1 pinça de biópsia e 1 sonda para alimentação enteral.",
+    "codeTuss": "40201120"
   },
   "corpo_estranho": {
-    "particular": { "normal": 3915, "especial": 3915 },
-    "particular_segundo": { "normal": 3132, "especial": 3132 },
-    "partconv": { "normal": 3523.5, "especial": 3523.5 },
-    "partconv_segundo": { "normal": 2818.8, "especial": 2818.8 }
+    "code": "88800100",
+    "name": "PACOTE ENDOSCOPIA DIGESTIVA ALTA + RETIRADA DE CORPO ESTRANHO",
+    "category": "endocolono",
+    "particular": {
+      "normal": 4096.66,
+      "especial": 4096.66
+    },
+    "particular_segundo": {
+      "normal": 3277.33,
+      "especial": 3277.33
+    },
+    "partconv": {
+      "normal": 3686.99,
+      "especial": 3686.99
+    },
+    "partconv_segundo": {
+      "normal": 2949.59,
+      "especial": 2949.59
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos; anátomo patológico; órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. OPME INCLUSO: 1 pinça de corpo estranho (dente de rato) ou 1 pinça Roth Net.",
+    "codeTuss": "40201120"
   },
   "balao_intragastrico_retirada": {
-    "particular": { "normal": 4000, "especial": 4000 },
-    "particular_segundo": { "normal": 3200, "especial": 3200 },
-    "partconv": { "normal": 3600, "especial": 3600 },
-    "partconv_segundo": { "normal": 2880, "especial": 2880 }
+    "code": "40202771",
+    "name": "RETIRADA BALÃO INTRAGÁSTRICO",
+    "category": "endocolono",
+    "particular": {
+      "normal": 4185.6,
+      "especial": 4185.6
+    },
+    "particular_segundo": {
+      "normal": 3348.48,
+      "especial": 3348.48
+    },
+    "partconv": {
+      "normal": 3767.04,
+      "especial": 3767.04
+    },
+    "partconv_segundo": {
+      "normal": 3013.63,
+      "especial": 3013.63
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Até 6 horas de Day Clinic, 1 hora de centro cirúrgico, anestesia geral, taxas diversas, materiais e medicamentos comuns ao procedimento e anestesia, equipamentos e assistência de enfermagem. OPME: 1 kit de retirada do balão intragástrico. EXCLUSÕES: Diárias e tempo de sala excedentes; SADT; exames laboratoriais; honorários médicos; OPMEs não descritos ou excedentes; anatomia patológica; sangue e hemoderivados; materiais e medicamentos não relacionados; intercorrências e complicações.",
+    "codeTuss": "40202771"
   },
   "polipectomia": {
-    "particular": { "normal": 4828, "especial": 4828 },
-    "particular_segundo": { "normal": 3862.4, "especial": 3862.4 },
-    "partconv": { "normal": 4345.2, "especial": 4345.2 },
-    "partconv_segundo": { "normal": 3476.16, "especial": 3476.16 }
+    "code": "88800092",
+    "name": "PACOTE ENDOSCOPIA + H. PYLORI + BIÓPSIA + POLIPECTOMIA",
+    "category": "endocolono",
+    "particular": {
+      "normal": 5052.02,
+      "especial": 5052.02
+    },
+    "particular_segundo": {
+      "normal": 4041.62,
+      "especial": 4041.62
+    },
+    "partconv": {
+      "normal": 4546.82,
+      "especial": 4546.82
+    },
+    "partconv_segundo": {
+      "normal": 3637.46,
+      "especial": 3637.46
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos;  órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. INCLUI: 1 anatomopatológico. OPME INCLUSO: 1 pinça de biópsia e 1 alça de polipectomia.",
+    "codeTuss": "40202038 ou 40202615"
   },
   "argonio": {
-    "particular": { "normal": 5938, "especial": 5938 },
-    "particular_segundo": { "normal": 4750.4, "especial": 4750.4 },
-    "partconv": { "normal": 5344.2, "especial": 5344.2 },
-    "partconv_segundo": { "normal": 4275.36, "especial": 4275.36 }
+    "code": "88800103",
+    "name": "PACOTE ENDOSCOPIA DIGESTIVA ALTA + ARGÔNIO",
+    "category": "endocolono",
+    "particular": {
+      "normal": 6213.52,
+      "especial": 6213.52
+    },
+    "particular_segundo": {
+      "normal": 4970.82,
+      "especial": 4970.82
+    },
+    "partconv": {
+      "normal": 5592.17,
+      "especial": 5592.17
+    },
+    "partconv_segundo": {
+      "normal": 4473.74,
+      "especial": 4473.74
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos; anátomo patológico; órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. OPME INCLUSO: 1 cateter de argônio.",
+    "codeTuss": "40201120"
   },
   "dilatacao_sonda": {
-    "particular": { "normal": 6243, "especial": 6243 },
-    "particular_segundo": { "normal": 4994.4, "especial": 4994.4 },
-    "partconv": { "normal": 5618.7, "especial": 5618.7 },
-    "partconv_segundo": { "normal": 4494.96, "especial": 4494.96 }
+    "code": "88800105",
+    "name": "PACOTE ENDOSCOPIA DIGESTIVA ALTA + DILATAÇÃO COM SONDA",
+    "category": "endocolono",
+    "particular": {
+      "normal": 6532.68,
+      "especial": 6532.68
+    },
+    "particular_segundo": {
+      "normal": 5226.14,
+      "especial": 5226.14
+    },
+    "partconv": {
+      "normal": 5879.41,
+      "especial": 5879.41
+    },
+    "partconv_segundo": {
+      "normal": 4703.53,
+      "especial": 4703.53
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos; anátomo patológico; órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. OPME INCLUSO: 1 fio guia de Savary.",
+    "codeTuss": "40201120"
   },
   "dilatacao_balao": {
-    "particular": { "normal": 6416, "especial": 6416 },
-    "particular_segundo": { "normal": 5132.8, "especial": 5132.8 },
-    "partconv": { "normal": 5774.4, "especial": 5774.4 },
-    "partconv_segundo": { "normal": 4619.52, "especial": 4619.52 }
+    "code": "88800104",
+    "name": "PACOTE ENDOSCOPIA DIGESTIVA ALTA + DILATAÇÃO COM BALÃO",
+    "category": "endocolono",
+    "particular": {
+      "normal": 6713.7,
+      "especial": 6713.7
+    },
+    "particular_segundo": {
+      "normal": 5370.96,
+      "especial": 5370.96
+    },
+    "partconv": {
+      "normal": 6042.33,
+      "especial": 6042.33
+    },
+    "partconv_segundo": {
+      "normal": 4833.86,
+      "especial": 4833.86
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos; anátomo patológico; órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. OPME INCLUSO: 1 balão CRE ou 1 balão Acalásia.",
+    "codeTuss": "40201120"
   },
   "gastrostomia": {
-    "particular": { "normal": 7318, "especial": 7318 },
-    "particular_segundo": { "normal": 5854.4, "especial": 5854.4 },
-    "partconv": { "normal": 6586.2, "especial": 6586.2 },
-    "partconv_segundo": { "normal": 5268.96, "especial": 5268.96 }
+    "code": "88800110",
+    "name": "PACOTE ENDOSCOPIA + GASTROSTOMIA",
+    "category": "endocolono",
+    "particular": {
+      "normal": 7657.56,
+      "especial": 7657.56
+    },
+    "particular_segundo": {
+      "normal": 6126.05,
+      "especial": 6126.05
+    },
+    "partconv": {
+      "normal": 6891.8,
+      "especial": 6891.8
+    },
+    "partconv_segundo": {
+      "normal": 5513.44,
+      "especial": 5513.44
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos; anátomo patológico; órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. OPME INCLUSO: 1 kit de gastrostomia.",
+    "codeTuss": "40201120"
   },
   "ecoendoscopia_com_puncao": {
-    "particular": { "normal": 7609, "especial": 7609 },
-    "particular_segundo": { "normal": 6087.2, "especial": 6087.2 },
-    "partconv": { "normal": 6848.1, "especial": 6848.1 },
-    "partconv_segundo": { "normal": 5478.48, "especial": 5478.48 }
+    "code": "88800095",
+    "name": "PACOTE ECOENDOSCOPIA ALTA OU BAIXA COM PUNÇÃO",
+    "category": "endocolono",
+    "particular": {
+      "normal": 7962.06,
+      "especial": 7962.06
+    },
+    "particular_segundo": {
+      "normal": 6369.65,
+      "especial": 6369.65
+    },
+    "partconv": {
+      "normal": 7165.85,
+      "especial": 7165.85
+    },
+    "partconv_segundo": {
+      "normal": 5732.68,
+      "especial": 5732.68
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos;  órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. INCLUI: 1 anatomopatológico. OPME INCLUSO: FNA – agulha Expect Slimline ou FNB – dispositivo Acquire.",
+    "codeTuss": "40202240"
   },
   "hemostasia_mecanica": {
-    "particular": { "normal": 7762, "especial": 7762 },
-    "particular_segundo": { "normal": 6209.6, "especial": 6209.6 },
-    "partconv": { "normal": 6985.8, "especial": 6985.8 },
-    "partconv_segundo": { "normal": 5588.64, "especial": 5588.64 }
+    "code": "88800102",
+    "name": "PACOTE ENDOSCOPIA + HEMOSTASIA MECÂNICA",
+    "category": "endocolono",
+    "particular": {
+      "normal": 8122.16,
+      "especial": 8122.16
+    },
+    "particular_segundo": {
+      "normal": 6497.73,
+      "especial": 6497.73
+    },
+    "partconv": {
+      "normal": 7309.94,
+      "especial": 7309.94
+    },
+    "partconv_segundo": {
+      "normal": 5847.95,
+      "especial": 5847.95
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos;  órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. INCLUI: 1 hemostasia (40202291). OPME INCLUSO: 1 kit de ligadura elástica, 1 cateter injetor e 3 clips.",
+    "codeTuss": "40201120"
   },
   "mucosectomia": {
-    "particular": { "normal": 8171, "especial": 8171 },
-    "particular_segundo": { "normal": 6536.8, "especial": 6536.8 },
-    "partconv": { "normal": 7353.9, "especial": 7353.9 },
-    "partconv_segundo": { "normal": 5883.12, "especial": 5883.12 }
+    "code": "88800093",
+    "name": "PACOTE ENDOSCOPIA + H. PYLORI + BIÓPSIA + MUCOSECTOMIA",
+    "category": "endocolono",
+    "particular": {
+      "normal": 8550.13,
+      "especial": 8550.13
+    },
+    "particular_segundo": {
+      "normal": 6840.1,
+      "especial": 6840.1
+    },
+    "partconv": {
+      "normal": 7695.12,
+      "especial": 7695.12
+    },
+    "partconv_segundo": {
+      "normal": 6156.1,
+      "especial": 6156.1
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos;  órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. INCLUI: 1 anatomopatológico e 1 mucosectomia (40202470). OPME INCLUSO: 1 cateter injetor, 3 clips e 1 alça de polipectomia.",
+    "codeTuss": "40201120 ou 40202615"
   },
   "colonoscopia_sem_biopsia": {
-    "particular": { "normal": 2471, "especial": 2471 },
-    "particular_segundo": { "normal": 1976.8, "especial": 1976.8 },
-    "partconv": { "normal": 2223.9, "especial": 2223.9 },
-    "partconv_segundo": { "normal": 1779.12, "especial": 1779.12 }
+    "code": "88800096",
+    "name": "PACOTE COLONOSCOPIA OU RETOSSIGMOIDOSCOPIA FLEXÍVEL",
+    "category": "endocolono",
+    "particular": {
+      "normal": 2585.65,
+      "especial": 2585.65
+    },
+    "particular_segundo": {
+      "normal": 2068.52,
+      "especial": 2068.52
+    },
+    "partconv": {
+      "normal": 2327.09,
+      "especial": 2327.09
+    },
+    "partconv_segundo": {
+      "normal": 1861.67,
+      "especial": 1861.67
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos; anátomo patológico; órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões.",
+    "codeTuss": "40201082 ou 40201171"
   },
   "colonoscopia_biopsia": {
-    "particular": { "normal": 3074, "especial": 3074 },
-    "particular_segundo": { "normal": 2459.2, "especial": 2459.2 },
-    "partconv": { "normal": 2766.6, "especial": 2766.6 },
-    "partconv_segundo": { "normal": 2213.28, "especial": 2213.28 }
+    "code": "88800097",
+    "name": "PACOTE COLONOSCOPIA + BIÓPSIA",
+    "category": "endocolono",
+    "particular": {
+      "normal": 3216.63,
+      "especial": 3216.63
+    },
+    "particular_segundo": {
+      "normal": 2573.3,
+      "especial": 2573.3
+    },
+    "partconv": {
+      "normal": 2894.97,
+      "especial": 2894.97
+    },
+    "partconv_segundo": {
+      "normal": 2315.98,
+      "especial": 2315.98
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos;  órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. INCLUI: 1 anatomopatológico. OPME INCLUSO: 1 pinça de biópsia.",
+    "codeTuss": "40202666"
   },
   "colonoscopia_multiplas_biopsias": {
-    "particular": { "normal": 3592, "especial": 3592 },
-    "particular_segundo": { "normal": 2873.6, "especial": 2873.6 },
-    "partconv": { "normal": 3232.8, "especial": 3232.8 },
-    "partconv_segundo": { "normal": 2586.24, "especial": 2586.24 }
+    "code": "88800098",
+    "name": "PACOTE COLONOSCOPIA + MÚLTIPLAS BIÓPSIAS",
+    "category": "endocolono",
+    "particular": {
+      "normal": 3758.67,
+      "especial": 3758.67
+    },
+    "particular_segundo": {
+      "normal": 3006.94,
+      "especial": 3006.94
+    },
+    "partconv": {
+      "normal": 3382.8,
+      "especial": 3382.8
+    },
+    "partconv_segundo": {
+      "normal": 2706.24,
+      "especial": 2706.24
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos;  órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. INCLUI: 1 anatomopatológico com múltiplas biópsias (até 5 fragmentos da mesma região). OPME INCLUSO: 1 pinça de biópsia.",
+    "codeTuss": "40202666"
   },
   "colonoscopia_dilatacao_balao": {
-    "particular": { "normal": 4724, "especial": 4724 },
-    "particular_segundo": { "normal": 3779.2, "especial": 3779.2 },
-    "partconv": { "normal": 4251.6, "especial": 4251.6 },
-    "partconv_segundo": { "normal": 3401.28, "especial": 3401.28 }
-  },
-  "colocacao_balao_intragastrico": {
-    "particular": { "normal": 6000, "especial": 6000 },
-    "particular_segundo": { "normal": 4800, "especial": 4800 },
-    "partconv": { "normal": 5400, "especial": 5400 },
-    "partconv_segundo": { "normal": 4320, "especial": 4320 }
+    "code": "88800108",
+    "name": "PACOTE COLONOSCOPIA + DILATAÇÃO COM BALÃO",
+    "category": "endocolono",
+    "particular": {
+      "normal": 4943.19,
+      "especial": 4943.19
+    },
+    "particular_segundo": {
+      "normal": 3954.55,
+      "especial": 3954.55
+    },
+    "partconv": {
+      "normal": 4448.87,
+      "especial": 4448.87
+    },
+    "partconv_segundo": {
+      "normal": 3559.1,
+      "especial": 3559.1
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos; anátomo patológico; órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. OPME INCLUSO: 1 balão CRE.",
+    "codeTuss": "40202674"
   },
   "colonoscopia_polipectomia": {
-    "particular": { "normal": 6161, "especial": 6161 },
-    "particular_segundo": { "normal": 4928.8, "especial": 4928.8 },
-    "partconv": { "normal": 5544.9, "especial": 5544.9 },
-    "partconv_segundo": { "normal": 4435.92, "especial": 4435.92 }
+    "code": "88800099",
+    "name": "PACOTE COLONOSCOPIA + BIÓPSIA + POLIPECTOMIA",
+    "category": "endocolono",
+    "particular": {
+      "normal": 6446.87,
+      "especial": 6446.87
+    },
+    "particular_segundo": {
+      "normal": 5157.5,
+      "especial": 5157.5
+    },
+    "partconv": {
+      "normal": 5802.18,
+      "especial": 5802.18
+    },
+    "partconv_segundo": {
+      "normal": 4641.74,
+      "especial": 4641.74
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos;  órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. INCLUI: 1 anatomopatológico. OPME INCLUSO: 1 pinça de biópsia e 1 alça de polipectomia.",
+    "codeTuss": "40202666"
   },
   "colonoscopia_argonio": {
-    "particular": { "normal": 6409, "especial": 6409 },
-    "particular_segundo": { "normal": 5127.2, "especial": 5127.2 },
-    "partconv": { "normal": 5768.1, "especial": 5768.1 },
-    "partconv_segundo": { "normal": 4614.48, "especial": 4614.48 }
+    "code": "88800107",
+    "name": "PACOTE COLONOSCOPIA + APLICAÇÃO DE ARGÔNIO",
+    "category": "endocolono",
+    "particular": {
+      "normal": 6706.38,
+      "especial": 6706.38
+    },
+    "particular_segundo": {
+      "normal": 5365.1,
+      "especial": 5365.1
+    },
+    "partconv": {
+      "normal": 6035.74,
+      "especial": 6035.74
+    },
+    "partconv_segundo": {
+      "normal": 4828.59,
+      "especial": 4828.59
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos; anátomo patológico; órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. OPME INCLUSO: 1 cateter de argônio.",
+    "codeTuss": "40201082"
   },
   "colonoscopia_mucosectomia": {
-    "particular": { "normal": 7448, "especial": 7448 },
-    "particular_segundo": { "normal": 5958.4, "especial": 5958.4 },
-    "partconv": { "normal": 6703.2, "especial": 6703.2 },
-    "partconv_segundo": { "normal": 5362.56, "especial": 5362.56 }
+    "code": "88800113",
+    "name": "PACOTE COLONOSCOPIA + BIÓPSIA + MUCOSECTOMIA",
+    "category": "endocolono",
+    "particular": {
+      "normal": 7793.59,
+      "especial": 7793.59
+    },
+    "particular_segundo": {
+      "normal": 6234.87,
+      "especial": 6234.87
+    },
+    "partconv": {
+      "normal": 7014.23,
+      "especial": 7014.23
+    },
+    "partconv_segundo": {
+      "normal": 5611.38,
+      "especial": 5611.38
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos;  órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. INCLUI: 1 anatomopatológico e 1 mucosectomia (40202470). OPME INCLUSO: 1 alça de polipectomia, 1 pinça de biópsia, 1 cateter injetor e 3 clips.",
+    "codeTuss": "40202712"
   },
   "colonoscopia_hemostasia": {
-    "particular": { "normal": 8197, "especial": 8197 },
-    "particular_segundo": { "normal": 6557.6, "especial": 6557.6 },
-    "partconv": { "normal": 7377.3, "especial": 7377.3 },
-    "partconv_segundo": { "normal": 5901.84, "especial": 5901.84 }
+    "code": "88800106",
+    "name": "PACOTE COLONOSCOPIA + HEMOSTASIA DE CÓLON",
+    "category": "endocolono",
+    "particular": {
+      "normal": 8577.34,
+      "especial": 8577.34
+    },
+    "particular_segundo": {
+      "normal": 6861.87,
+      "especial": 6861.87
+    },
+    "partconv": {
+      "normal": 7719.61,
+      "especial": 7719.61
+    },
+    "partconv_segundo": {
+      "normal": 6175.69,
+      "especial": 6175.69
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSO: Honorários médicos (endoscopista e anestesista), taxas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e à sedação, gasoterapia e assistência de enfermagem. EXCLUSO: Diárias, sala cirúrgica, intercorrências e complicações, exames adicionais, hemostasia, polipectomia, mucosectomia, anátomo patológico, sangue e hemoderivados, materiais especiais/OPME não descritos e medicamentos especiais ou de uso contínuo e pessoal do paciente. INCLUI TAMBÉM: cateter injetor, 3 clips e 1 hemostasia.",
+    "codeTuss": "40201082"
   },
   "colonoscopia_completa": {
-    "particular": { "normal": 12010, "especial": 12010 },
-    "particular_segundo": { "normal": 9608, "especial": 9608 },
-    "partconv": { "normal": 10809, "especial": 10809 },
-    "partconv_segundo": { "normal": 8647.2, "especial": 8647.2 }
+    "code": "88800112",
+    "name": "PACOTE COLONOSCOPIA + BIÓPSIA + POLIPECTOMIA + HEMOSTASIA",
+    "category": "endocolono",
+    "particular": {
+      "normal": 12567.26,
+      "especial": 12567.26
+    },
+    "particular_segundo": {
+      "normal": 10053.81,
+      "especial": 10053.81
+    },
+    "partconv": {
+      "normal": 11310.53,
+      "especial": 11310.53
+    },
+    "partconv_segundo": {
+      "normal": 9048.42,
+      "especial": 9048.42
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos;  órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. INCLUI: 1 anatomopatológico, 1 polipectomia e 1 hemostasia (40202313). OPME INCLUSO: 1 alça de polipectomia, 1 pinça de biópsia, 1 cateter injetor e 3 clips.",
+    "codeTuss": "40202666"
   },
   "colonoscopia_mucosectomia_complexa": {
-    "particular": { "normal": 12112, "especial": 12112 },
-    "particular_segundo": { "normal": 9689.6, "especial": 9689.6 },
-    "partconv": { "normal": 10900.8, "especial": 10900.8 },
-    "partconv_segundo": { "normal": 8720.64, "especial": 8720.64 }
+    "code": "88800111",
+    "name": "PACOTE COLONOSCOPIA + BIÓPSIA + POLIPECTOMIA + MUCOSECTOMIA",
+    "category": "endocolono",
+    "particular": {
+      "normal": 12674.0,
+      "especial": 12674.0
+    },
+    "particular_segundo": {
+      "normal": 10139.2,
+      "especial": 10139.2
+    },
+    "partconv": {
+      "normal": 11406.6,
+      "especial": 11406.6
+    },
+    "partconv_segundo": {
+      "normal": 9125.28,
+      "especial": 9125.28
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Taxas diversas e equipamentos pertinentes, materiais e medicamentos comuns ao procedimento e sedação (verificar limitadores e exceções), medicamentos inerentes ao preparo para realização do exame quando regime internado, gasoterapia, assistência de enfermagem e honorários médicos (endoscopista e anestesista). EXCLUSÕES: Diárias; sala cirúrgica; intercorrências e complicações; exames laboratoriais; tomografias; ressonâncias; radiodiagnósticos; endoscópicos;  órteses, próteses e materiais especiais; medicamentos para patologias não relacionadas ao procedimento principal, quimioterápicos, medicamentos importados e/ou de uso contínuo e pessoal do paciente, antifúngicos e imunomoduladores; sangue e hemoderivados; honorários médicos não descritos nas inclusões; serviço de apoio nutricional, dietas e suplementos alimentares; terapias; despesas com acompanhante e telefonia; remoções; e outros itens não descritos nas inclusões. INCLUI: 1 anatomopatológico e 1 mucosectomia (40202470). OPME INCLUSO: 1 alça de polipectomia, 1 pinça de biópsia, 1 cateter injetor e 3 clips.",
+    "codeTuss": "40202666"
+  },
+  "colocacao_balao_intragastrico": {
+    "code": "40202658",
+    "name": "COLOCAÇÃO BALÃO INTRAGÁSTRICO",
+    "category": "endocolono",
+    "particular": {
+      "normal": 6278.4,
+      "especial": 6278.4
+    },
+    "particular_segundo": {
+      "normal": 5022.72,
+      "especial": 5022.72
+    },
+    "partconv": {
+      "normal": 5650.56,
+      "especial": 5650.56
+    },
+    "partconv_segundo": {
+      "normal": 4520.45,
+      "especial": 4520.45
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Até 1 hora de sala de endoscopia, anestesia/sedação, taxas diversas, materiais e medicamentos comuns ao procedimento e anestesia, equipamentos e assistência de enfermagem. OPME: 1 balão intragástrico (6 meses). EXCLUSÕES: Diárias; tempo de sala excedente; SADT; exames laboratoriais; honorários médicos; centro cirúrgico; OPMEs não descritos ou excedentes; anatomia patológica; sangue e hemoderivados; materiais e medicamentos não relacionados; intercorrências e complicações.",
+    "codeTuss": "40202658"
+  },
+  "us_mamotomia": {
+    "code": "88000285",
+    "name": "Pacote Mamotomia por estereotaxia (guiada por RX ou USG)",
+    "category": "ultrassom",
+    "particular": {
+      "normal": 2582.0,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": 2065.6,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 2323.8,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": 1859.04,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Realizado somente na unidade Pompeia. INCLUSÕES: Até 30 minutos de sala, materiais e medicamentos comuns pertinentes ao procedimento, honorários médicos, taxas diversas e radiografia ou ultrassonografia para realização do procedimento. OPME: agulha com cânula cortante Standard 12G 12CM (ATEC1212-20) OU agulha com cânula cortante Standard 9G 20CM (ATEC0912-20) OU agulha com cânula cortante Petite 9G 12CM (ATEC0912-12). EXCLUSÕES: Diárias; intercorrências e complicações; Senomarker Clip Mamário (SMEC10GSS); materiais especiais, como órteses, próteses e materiais consignados não descritos; medicamentos especiais e de uso contínuo e pessoal do paciente; procedimentos realizados em centro cirúrgico e itens não mencionados nas inclusões.",
+    "codeTuss": "40808289"
+  },
+  "us_endometriose": {
+    "code": "40901181",
+    "name": "USG para endometriose",
+    "category": "ultrassom",
+    "particular": {
+      "normal": 760.0,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": 608.0,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 684.0,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": 547.2,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Realizado somente na unidade Pompeia. INCLUSÕES: Até 20 minutos de sala, materiais e medicamentos pertinentes ao procedimento e honorário médico. ITENS EXCLUSOS: Exames realizados no centro cirúrgico, diárias, pré-operatórios, intercorrências e complicações, medicamentos e materiais (órteses, próteses e especiais) não descritos nas inclusões, sangue e hemoderivados, anatomia patológica e outros itens não descritos na inclusão.",
+    "codeTuss": "40901181"
+  },
+  "us_intestinal": {
+    "code": "99900010",
+    "name": "USG intestinal",
+    "category": "ultrassom",
+    "particular": {
+      "normal": 560.0,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": 448.0,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 504.0,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": 403.2,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Realizado somente na unidade Pompeia. INCLUSÃO: Honorário médico, taxas de sala e equipamentos, materiais e medicamentos pertinentes ao procedimento e assistência de enfermagem. EXCLUSÃO: Diárias (inclusive UTI), intercorrências e complicações, materiais especiais, como órteses, próteses e materiais consignados (OPME), medicamentos especiais e de uso contínuo e pessoal do paciente, consultas ou avaliações e itens não mencionados nas inclusões.",
+    "codeTuss": "99900010"
+  },
+  "us_doppler_peniano": {
+    "code": "89101232",
+    "name": "USG Doppler colorido peniano com fármaco de indução",
+    "category": "ultrassom",
+    "particular": {
+      "normal": 1631.0,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": 1304.8,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 1467.9,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": 1174.32,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "INCLUSÕES: Honorários médicos, taxas, materiais pertinentes e assistência de enfermagem. EXCLUSÕES: Internação, materiais e medicamentos não relacionados, SADT e itens não mencionados nas inclusões.",
+    "codeTuss": "40901440"
+  },
+  "us_doppler_mi": {
+    "code": null,
+    "name": "Doppler colorido arterial de membro inferior - unilateral",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 809.09,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 687.73,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901475"
+  },
+  "us_doppler_ms": {
+    "code": null,
+    "name": "Doppler colorido arterial de membro superior - unilateral",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 809.09,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 687.73,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901459"
+  },
+  "us_doppler_aorta_renais": {
+    "code": null,
+    "name": "Doppler de aorta e artérias renais",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 557.21,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 473.63,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901394"
+  },
+  "us_doppler_aorta_iliacas": {
+    "code": null,
+    "name": "Doppler de aorta e ilíacas",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 557.21,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 473.63,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901408"
+  },
+  "us_doppler_peniano_sem": {
+    "code": null,
+    "name": "Doppler peniano sem fármaco",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 489.34,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 415.94,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901513"
+  },
+  "us_doppler_viscerais": {
+    "code": null,
+    "name": "Doppler de artérias viscerais",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 557.21,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 473.63,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901416"
+  },
+  "us_doppler_hemangioma": {
+    "code": null,
+    "name": "Doppler de hemangioma",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 557.21,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 473.63,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901424"
+  },
+  "us_doppler_orgao": {
+    "code": null,
+    "name": "Doppler de órgão isolado",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 494.16,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 420.03,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901386"
+  },
+  "us_doppler_carotidas": {
+    "code": null,
+    "name": "Doppler de vasos cervicais arteriais bilat",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 645.81,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 548.94,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901360"
+  },
+  "us_doppler_venas_cervicais": {
+    "code": null,
+    "name": "Doppler de vasos cervicais venosos bilat",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 684.44,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 581.78,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901378"
+  },
+  "us_doppler_vci": {
+    "code": null,
+    "name": "Doppler de veia cava superior/inferior",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 557.21,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 473.63,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901432"
+  },
+  "us_doppler_transfontanela": {
+    "code": null,
+    "name": "Doppler transfontanela",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 503.36,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 427.86,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901351"
+  },
+  "us_doppler_mi_venoso": {
+    "code": null,
+    "name": "Doppler venoso MI unilateral",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 847.72,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 720.56,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901483"
+  },
+  "us_doppler_ms_venoso": {
+    "code": null,
+    "name": "Doppler venoso MS unilateral",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 847.72,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 720.56,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901467"
+  },
+  "us_eco_strain": {
+    "code": null,
+    "name": "Ecocardiograma transtorácico com strain",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 733.99,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 623.89,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901807"
+  },
+  "us_eco_sincronismo": {
+    "code": null,
+    "name": "Ecodopplercardiograma com sincronismo",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 977.57,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 830.94,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901629"
+  },
+  "us_eco_contraste_intra": {
+    "code": null,
+    "name": "Ecodopplercardiograma com contraste intracavitário",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 409.93,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 348.44,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901050"
+  },
+  "us_eco_contraste_perfusao": {
+    "code": null,
+    "name": "Ecodopplercardiograma com contraste para perfusão",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 1073.28,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 912.29,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901068"
+  },
+  "us_eco_estresse_fisico": {
+    "code": null,
+    "name": "Ecodopplercardiograma com estresse físico",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 841.22,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 715.04,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901696"
+  },
+  "us_eco_fetal": {
+    "code": null,
+    "name": "Ecodopplercardiograma fetal com mapeamento",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 390.27,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 331.73,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901084"
+  },
+  "us_eco_marcapasso": {
+    "code": null,
+    "name": "Ecodopplercardiograma para ajuste de marcapasso",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 1174.52,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 998.34,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901718"
+  },
+  "us_eco_estresse_contraste": {
+    "code": null,
+    "name": "Eco sob estresse físico/farmacológico com contraste",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 1233.27,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 1048.28,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901700"
+  },
+  "us_eco_bi_colorido": {
+    "code": null,
+    "name": "Eco bi colorido",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 446.9,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 379.86,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901106"
+  },
+  "us_histerossonografia": {
+    "code": null,
+    "name": "Histerossonografia",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 717.37,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 609.77,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901327"
+  },
+  "us_abdome_inferior_masc": {
+    "code": null,
+    "name": "Abdome inferior masculino",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 242.78,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 206.36,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901173"
+  },
+  "us_abdome_superior": {
+    "code": null,
+    "name": "Abdome superior",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 282.48,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 240.11,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901130"
+  },
+  "us_abdome_total": {
+    "code": null,
+    "name": "Abdome total",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 394.3,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 335.16,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901122"
+  },
+  "us_aparelho_urinario": {
+    "code": null,
+    "name": "Aparelho urinário",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 244.41,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 207.75,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901769"
+  },
+  "us_articular": {
+    "code": null,
+    "name": "Articular (por articulação)",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 238.96,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 203.12,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901220"
+  },
+  "us_dermatologico": {
+    "code": null,
+    "name": "Dermatológico",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 177.98,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 151.29,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901190"
+  },
+  "us_estruturas_superficiais": {
+    "code": null,
+    "name": "Estruturas superficiais",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 191.74,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 162.98,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901211"
+  },
+  "us_glandulas_salivares": {
+    "code": null,
+    "name": "Glândulas salivares",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 238.96,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 203.12,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901033"
+  },
+  "us_globo_ocular": {
+    "code": null,
+    "name": "Globo ocular bilateral",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 238.96,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 203.12,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901017"
+  },
+  "us_globo_doppler": {
+    "code": null,
+    "name": "Globo ocular com Doppler",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 422.86,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 359.44,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901025"
+  },
+  "us_obstetrica": {
+    "code": null,
+    "name": "Obstétrica",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 180.07,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 153.06,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901238"
+  },
+  "us_obstetrica_1tri": {
+    "code": null,
+    "name": "Obstétrica 1º trimestre (endovaginal)",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 489.95,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 416.46,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901297"
+  },
+  "us_obstetrica_doppler": {
+    "code": null,
+    "name": "Obstétrica com Doppler",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 396.69,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 337.19,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901246"
+  },
+  "us_obstetrica_tn": {
+    "code": null,
+    "name": "Obstétrica com translucência nucal",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 376.35,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 319.9,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901254"
+  },
+  "us_obstetrica_multipla": {
+    "code": null,
+    "name": "Obstétrica gestação múltipla com Doppler (cada feto)",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 232.41,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 197.55,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901289"
+  },
+  "us_obstetrica_multipla_sem": {
+    "code": null,
+    "name": "Obstétrica gestação múltipla (sem Doppler) cada feto",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 128.95,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 109.61,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901270"
+  },
+  "us_obstetrica_morfologica": {
+    "code": null,
+    "name": "Obstétrica morfológica",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 507.56,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 431.42,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901262"
+  },
+  "us_obstetrica_perfil": {
+    "code": null,
+    "name": "Perfil biofísico fetal",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 507.56,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 431.42,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901505"
+  },
+  "us_orgaos_superficiais": {
+    "code": null,
+    "name": "Órgãos superficiais (tireoide, escroto, pênis, crânio)",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 191.74,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 162.98,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901203"
+  },
+  "us_prostata_abd": {
+    "code": null,
+    "name": "Próstata via abdominal",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 242.78,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 206.36,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901750"
+  },
+  "us_prostata_tr": {
+    "code": null,
+    "name": "Próstata transretal",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 383.78,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 326.21,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901335"
+  },
+  "us_retroperitonio": {
+    "code": null,
+    "name": "Retroperitônio",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 354.99,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 301.74,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901149"
+  },
+  "us_toracico": {
+    "code": null,
+    "name": "Torácico extracardíaco",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 174.01,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 147.91,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901041"
+  },
+  "us_transvaginal": {
+    "code": null,
+    "name": "Transvaginal",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 380.0,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 323.0,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901300"
+  },
+  "us_transvaginal_ovulacao": {
+    "code": null,
+    "name": "Transvaginal para controle de ovulação (3+ exames)",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 435.02,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 369.77,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901319"
+  },
+  "us_3d": {
+    "code": null,
+    "name": "Tridimensional (acréscimo ao exame base)",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 238.88,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 203.04,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901491"
+  },
+  "us_biomicroscopica": {
+    "code": null,
+    "name": "Ultrassonografia biomicroscópica - monocular",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 385.07,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 327.31,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901521"
+  },
+  "us_diagnostica_ocular": {
+    "code": null,
+    "name": "US diagnóstica - monocular",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 327.66,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 278.51,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901530"
+  },
+  "us_peca_cirurgica": {
+    "code": null,
+    "name": "US de peça cirúrgica",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 191.74,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 162.98,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901734"
+  },
+  "us_transretal_radial": {
+    "code": null,
+    "name": "US transretal radial",
+    "category": "us_avulso",
+    "particular": {
+      "normal": 557.21,
+      "especial": null
+    },
+    "particular_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "partconv": {
+      "normal": 473.63,
+      "especial": null
+    },
+    "partconv_segundo": {
+      "normal": null,
+      "especial": null
+    },
+    "hasEspecial": false,
+    "onlyEspecial": false,
+    "incluiContraste": false,
+    "composicao": "Exame de ultrassom. Não inclui materiais ou medicamentos adicionais, salvo se explicitamente necessário.",
+    "codeTuss": "40901742"
   }
 }
